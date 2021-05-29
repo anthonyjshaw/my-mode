@@ -25,8 +25,15 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item" data-toggle="modal", data-target="#exampleModalLogin">
+          <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            Login
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="modal", data-target="#exampleModalSignup">
+          <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            Signup
+          </a>
         </li>
       <% end %>
     </ul>
