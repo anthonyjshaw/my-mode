@@ -1,7 +1,5 @@
 .footer {
   background: #F4F4F4;
-  bottom: 0px;
-  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,6 +10,7 @@
   margin-top: auto;
   margin-bottom: 0;
   border-top: 1px solid black;
+  border-bottom: 1px solid black
 }
 .footer-links {
   display: flex;
