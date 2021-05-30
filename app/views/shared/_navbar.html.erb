@@ -25,6 +25,13 @@
           </div>
         </li>
       <% else %>
+        <li class="nav-item">
+          <% form_tag(:action => "/search") do %>
+          <%= label_tag(:q, "Search:") %>
+   <%= text_field_tag(:q) %>
+   <%= submit_tag("Search") %>
+          <% end %>
+        </li>
         <li class="nav-item" data-toggle="modal", data-target="#exampleModalLogin">
           <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">
             Login
@@ -32,7 +39,7 @@
         </li>
         <li class="nav-item" data-toggle="modal", data-target="#exampleModalSignup">
           <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            Signup
+            Sign up
           </a>
         </li>
       <% end %>
