@@ -5,11 +5,9 @@ class PagesController < ApplicationController
   end
 
   def men
-    @items = Item.where(gender: params[:gender])
   end
 
   def women
-    @items = Item.where(gender: params[:gender])
   end
 
   def show
@@ -17,13 +15,15 @@ class PagesController < ApplicationController
   end
 
   def index
-    @gender = params[:gender]
     @category = params[:category]
-    @items = Item.where(gender: @gender, clothes_type: @category)
+    @gender = request.path
+    @query = case @gender
+            when "/men/#{params[:category]}"
+              'men'
+            when "/women/#{params[:category]}"
+              'women'
+            end
+    @items = Item.where(clothes_type: @category, gender: @query)
   end
-
-  def search
-  end
-
 
 end

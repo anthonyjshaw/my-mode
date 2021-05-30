@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   def new
     @item = Item.new
     authorize @item
@@ -9,12 +8,24 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     authorize @item
     if @item.save
-      redirect_to items_path
+      redirect_to men_path
     else
       render :new
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    authorize @item
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    authorize @item
+    @item.update(item_params)
+    redirect_to root_path
+
+  end
   private
 
   def item_params

@@ -2,20 +2,16 @@
 <div class="container mt-4">
 <h1>Men</h1>
 
-<div class="row">
+<div class="row justify-content-center">
 <% Item::ITEM_CATEGORIES.each do |category| %>
-<div class="card">
-  <%= link_to "men/#{category}" do %>
-    <div class="card-title">
-     <p><%= category %></p>
-   </div>
-  <% end %>
-<% end %>
-</div>
-</div>
-<% @items.each do |item| %>
- <%= item.name %>
- <p>£<%= item.price %></p>
-
-<% end %>
+  <div class="card m-3" style="width: 18rem">
+    <%= link_to "men/#{category}" do %>
+     <%= image_tag "#{category}.jpg", alt: "alttext", class: 'clothes' %>
+      <div class="card-title">
+        <p><%= category %></p>
+      </div>
+      <% end %>
+    </div>
+      <% end %>
+  </div>
 </div>
