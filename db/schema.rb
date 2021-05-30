@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_05_30_121119) do
     t.decimal "price"
     t.integer "quantity"
     t.string "name"
-    t.boolean "is_in_stock"
+    t.boolean "is_in_stock", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "gender"

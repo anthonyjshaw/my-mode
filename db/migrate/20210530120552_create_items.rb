@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.decimal :price
       t.integer :quantity
       t.string :name
-      t.boolean :is_in_stock
+      t.boolean :is_in_stock, default: true
 
       t.timestamps
     end
