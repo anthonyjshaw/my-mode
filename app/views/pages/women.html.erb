@@ -1,11 +1,13 @@
 <div class="container">
 
 <h1>Women</h1>
-
-<%= @items.each do |item| %>
-  item.name
-<% end %>
-
+<div class="cards">
+  <% @items.each do |item| %>
+  <div class="card">
+  <%= item.name %>
+  <% end %>
+</div>
+</div>
 </div>
 
 
