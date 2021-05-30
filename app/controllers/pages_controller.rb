@@ -5,13 +5,20 @@ class PagesController < ApplicationController
   end
 
   def men
-    @items = Item.where(gender: 'men')
+    @items = Item.where(gender: params[:gender])
   end
 
   def women
-    @items = Item.where(gender: 'women')
+    @items = Item.where(gender: params[:gender])
   end
 
   def search
+  end
+
+  def show
+    @gender = params[:gender]
+    @category = params[:category]
+    @items = Item.where(gender: @gender, clothes_type: @category)
+
   end
 end

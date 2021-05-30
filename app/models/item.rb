@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   has_many_attached :photos
-  ITEM_CATEGORIES = %w[socks t-shirt shirt trousers underwear accessories]
+  ITEM_CATEGORIES = %w[socks t-shirt shirts trousers underwear accessories]
   SIZE_CATEGORIES = %w[S M L XL XXL]
 
   enum gender: %i[women men neutral]

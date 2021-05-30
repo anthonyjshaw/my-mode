@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h1><%= @category.capitalize %></h1>
+
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="col">
+        <% if item.photos.attached? %>
+        <%= cl_image_tage(item.photo[0].key, alt: item.name) %>
+        <% else %>
+        <h1><%= item.name %></h1>
+        <% end %>
+      <%= item.description %>
+       </div>
+    <% end %>
+  </div>
+</div>
