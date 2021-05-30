@@ -2,7 +2,47 @@
 <div class="container mt-4">
 <h1>Men</h1>
 
-<%= @items.each do |item| %>
-  item.name
+
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <h2>Shirt</h2>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h2>Clothes</h2>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h2>Acessories</h2>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h2>Acessories</h2>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h2>Acessories</h2>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h2>Acessories</h2>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h2>Acessories</h2>
+    </div>
+  </div>
+</div>
+<% @items.each do |item| %>
+ <%= item.name %>
+ <p>£<%= item.price %></p>
+
 <% end %>
 </div>
