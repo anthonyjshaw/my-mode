@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/men', to: 'pages#men', as: :men
   Item::ITEM_CATEGORIES.each do |category|
-      get ":gender/:category", to: 'pages#show', as: "gender_#{category}".to_sym
-      puts "#{category}"
+      get ":gender/:category", to: 'pages#index', as: "#{category}"
+      get ':gender/:category/:id', to: 'pages#show'
   end
 
   get '/women', to: 'pages#women', as: :women
@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   # end
 
 
-  resources :items, only: %i[index new create]
+  resources :items, only: %i[new create edit]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

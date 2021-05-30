@@ -12,13 +12,18 @@ class PagesController < ApplicationController
     @items = Item.where(gender: params[:gender])
   end
 
-  def search
+  def show
+    @item = Item.find(params[:id])
   end
 
-  def show
+  def index
     @gender = params[:gender]
     @category = params[:category]
     @items = Item.where(gender: @gender, clothes_type: @category)
-
   end
+
+  def search
+  end
+
+
 end

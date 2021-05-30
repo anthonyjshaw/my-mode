@@ -4,10 +4,14 @@
 
 <div class="row">
 <% Item::ITEM_CATEGORIES.each do |category| %>
-  <%= link_to "men/#{category.to_sym}" do %>
-    <%= category %>
+<div class="card">
+  <%= link_to "men/#{category}" do %>
+    <div class="card-title">
+     <p><%= category %></p>
+   </div>
   <% end %>
 <% end %>
+</div>
 </div>
 <% @items.each do |item| %>
  <%= item.name %>
