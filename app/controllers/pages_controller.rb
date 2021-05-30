@@ -5,9 +5,11 @@ class PagesController < ApplicationController
   end
 
   def men
+    @items = Item.where(gender: 'men')
   end
 
   def women
+    @items = Item.where(gender: 'women')
   end
 
   def search

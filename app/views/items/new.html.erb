@@ -1,0 +1,28 @@
+
+
+<div class="container">
+<%= simple_form_for(item) do |f| %>
+<%= f.input :name %>
+<%= f.input :description %>
+<%= f.input :color %>
+<%= f.input :clothes_type, collection: Item::ITEM_CATEGORIES %>
+<%= f.input :size, collection: Item::SIZE_CATEGORIES %>
+<%= f.input :price %>
+<%= f.input :quantity %>
+<%= f.submit %>
+<% end %>
+
+
+:clothes_type,
+                                 :color,
+                                 :description,
+                                 :size,
+                                 :price,
+                                 :quantity,
+                                 :name,
+                                 :is_in_stock,
+                                 :gender
+
+</div>
+
+
