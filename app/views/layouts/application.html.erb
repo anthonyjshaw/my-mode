@@ -12,8 +12,12 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/modal_login' %>
-    <%= render 'shared/modal_signup' %>
+    <%= render 'shared/modal', locals: {modal_id: @modal_login} do %>
+    <%= render 'shared/new_session' %>
+    <% end %>
+    <%= render 'shared/modal', locals: {modal_id: @modal_signup} do %>
+    <%= render 'shared/new_registration' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>

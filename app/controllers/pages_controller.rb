@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home men women search]
 
+  before_action :set_modals
   def home
+
   end
 
   def men
@@ -25,5 +27,10 @@ class PagesController < ApplicationController
             end
     @items = Item.where(clothes_type: @category, gender: @query)
   end
+  private
 
+  def set_modals
+    @modal_signup = "2"
+    @modal_login = "1"
+  end
 end
