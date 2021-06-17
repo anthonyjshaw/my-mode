@@ -22,8 +22,11 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     authorize @item
-    @item.update(item_params)
-    redirect_to root_path
+    if @item.update(item_params)
+        redirect_to @item.gender == "men" ? men_item_path(@item) : women_item_path(@item)
+    else
+      render :edit
+    end
 
   end
   private
