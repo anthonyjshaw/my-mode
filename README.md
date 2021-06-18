@@ -1,4 +1,4 @@
-[#my mode](my-mode.herokuapp.com)
+# [my mode](my-mode.herokuapp.com)
 
 ## Tired of online shopping? 
 ## not really finding the best look? 
