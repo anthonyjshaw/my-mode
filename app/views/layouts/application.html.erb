@@ -5,21 +5,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-    <%= favicon_link_tag asset_path('/assets/images/favicon-16x16.png') %>
+    <%= favicon_link_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
 
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/modal', locals: {modal_id: @modal_login} do %>
+    <%= render 'shared/modal' do %>
     <%= render 'shared/new_session' %>
     <% end %>
-    <%= render 'shared/modal', locals: {modal_id: @modal_signup} do %>
-    <%= render 'shared/new_registration' %>
-    <% end %>
     <%= render 'shared/flashes' %>
+    <div class="flex-wrapper">
     <%= yield %>
     <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

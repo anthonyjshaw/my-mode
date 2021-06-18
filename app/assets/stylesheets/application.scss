@@ -15,3 +15,15 @@
 body h1, h2, h3, p {
   font-weight: lighter;
 }
+
+
+
+
+.flex-wrapper {
+  display: flex;
+  min-height: 95vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+

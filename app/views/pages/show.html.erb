@@ -3,8 +3,10 @@
   <h1 class="mb-3"><%= @item.name.capitalize %></h1>
   <% if @item.photos.attached? %>
 <%= cl_image_tag(@item.photos[0].key, class: "card-img-top") %>
+<%= @item.photos %>
 <% else %>
 <p> <%= @item.name %> </p>
+<p><%= @item.photos[0].key %></p>
 <p><%= @item.description %></p>
 <p><%= @item.clothes_type %></p>
 <%= link_to "Edit", edit_item_path(@item) %>

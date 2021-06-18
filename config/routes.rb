@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  resources :styles, only: %i[index]
+
+  get 'my-styles', to: 'items#my_styles', as: :my_styles
+
   get "men", to: 'pages#men', as: :men
   get 'men/:category/', to: "pages#index"
   get "men/:category/:id", to: 'pages#show', as: :men_item
