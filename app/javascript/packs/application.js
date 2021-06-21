@@ -27,15 +27,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { addActiveClassNav } from './add_active_class_nav';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  addActiveClassNav();
 
-});
-
-window.addEventListener('load', () => {
-  navigator.serviceWorker.register('/service-worker.js').then(registration => {
+   navigator.serviceWorker.register('/service-worker.js').then(registration => {
     console.log('ServiceWorker registered: ', registration);
 
     var serviceWorker;
@@ -52,4 +51,6 @@ window.addEventListener('load', () => {
   }).catch(registrationError => {
     console.log('Service worker registration failed: ', registrationError);
   });
+
 });
+

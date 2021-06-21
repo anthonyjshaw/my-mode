@@ -13,19 +13,30 @@
 
 #navbar-logo:hover {
   background: transparent;
+  border: none;
+}
+
+.active {
+  border-bottom: 1px white solid;
 }
 
 .navbar {
   a {
-    color: white;
+    color: #fff;
   }
 
   a:hover {
-    background:white;
-    color: black;
+    border-bottom: 1px white solid;
   }
 }
 
+#nav-link-white {
+  color: #fff;
+  margin: 0 0.5em;
+}
+#nav-link-white:hover {
+  color: #fff;
+}
 .navbar-toggler {
   border: none;
 }

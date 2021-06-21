@@ -9,4 +9,20 @@ class StylesController < ApplicationController
     @styles = policy_scope(Style).where(user: current_user)
     authorize @styles
   end
+
+  def new
+    @style = Style.new
+    authorize @style
+  end
+
+  def create
+    @style = Style.new(style_params)
+    authorize @style
+  end
+
+  private
+
+  def style_params
+    params.require(:style).permit(:name)
+  end
 end

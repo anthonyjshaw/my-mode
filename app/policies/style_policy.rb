@@ -12,4 +12,8 @@ class StylePolicy < ApplicationPolicy
   def my_styles?
     true
   end
+
+  def create?
+    true
+  end
 end
