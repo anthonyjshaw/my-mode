@@ -5,6 +5,7 @@
   "scope": "/",
   "display": "standalone",
   "background_color": "#fff",
+  "theme_color": "#fff",
   "description": "The new way to create your fashion items.",
   "icons": [{
     "src": "apple-touch-icon.png",
