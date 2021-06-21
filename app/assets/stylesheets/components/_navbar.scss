@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: transparent;
-  border-bottom: 1px solid black;
+  background: #202020;
+  border-bottom: 1px solid white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,6 +12,19 @@
   width: 40px;
 }
 
+.navbar {
+  a {
+    color: white;
+  }
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+#navbar-toggler-icon-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.6)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
 
 // .navbar-toggler-icon-cross {
 //   background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);

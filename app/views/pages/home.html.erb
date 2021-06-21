@@ -1,14 +1,10 @@
-<div class="banner mb-4">
-  <div class="container">
-    <div class="landing-page-container background-white d-flex flex-column">
-      <h1 id="landing-page-logo">my mode</h1>
-      <p>Share looks, styles and collections.</p>
-    <%= link_to "see styles", styles_path %>
-    </div>
+<div class='container my-5'>
+  <div class="row">
+    <div class="col">
+<h1 class='py-5' id='landing-page-logo'>my mode</h1>
 
-  </div>
+<p><%= link_to "Find your style.", styles_path, class:'button btn-black'  %></p>
 </div>
-<div class="container mb-3">
-
-
+<div class="col"> <%= image_tag "banner.jpg", alt: "banner", class: 'img-fluid'%>  </div>
+</div>
 </div>
