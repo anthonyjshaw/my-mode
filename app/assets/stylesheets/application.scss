@@ -16,10 +16,16 @@ body h1, h2, h3, p {
   font-weight: lighter;
 }
 
+// Application wide styles:
 
-#landing-page-logo {
-  font-family: 'Leckerli One', 'serif';
+a {
+  color: black;
 }
+
+a:hover {
+  text-decoration: none;
+}
+
 
 .flex-wrapper {
   display: flex;
@@ -29,3 +35,6 @@ body h1, h2, h3, p {
 }
 
 
+.white-bckgrnd {
+  background: white;
+}

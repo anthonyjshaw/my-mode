@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  belongs_to :style
   has_many_attached :photos
   ITEM_CATEGORIES = %w[socks t-shirt shirts trousers underwear accessories]
   SIZE_CATEGORIES = %w[S M L XL XXL]

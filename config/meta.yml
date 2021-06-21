@@ -1,0 +1,5 @@
+meta_product_name: "my mode"
+meta_title: "my mode | Create your look"
+meta_description: "A platform for sharing different fashion ideas."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
