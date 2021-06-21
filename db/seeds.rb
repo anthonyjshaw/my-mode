@@ -9,14 +9,19 @@
 puts 'destroying items...'
 
 Item.destroy_all
+puts "Items destroyed!"
 
-puts 'How many seeds?'
+puts 'destroying styles...'
+Style.destroy_all
+puts 'Styles destroyed!'
 
-@num = STDIN.gets.chomp.to_i
+puts 'destroying users...'
+User.destroy_all
+puts 'Users destroyed'
 
-puts 'seeding'
+puts 'Seeding...'
 
-@num.times do
+30.times do
 
 color = Faker::Color.color_name
 clothes_type = Item::ITEM_CATEGORIES.sample

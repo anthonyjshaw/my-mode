@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand", id:'navbar-logo' do %>
     <%= image_tag "logo-circle", alt: "my-mode circle" %>
     <% end %>
 
@@ -22,7 +22,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login/Signup", new_user_session_path, class: 'btn-white' %>
+          <%= link_to "Login | Sign up", new_user_session_path, class: 'btn-white' %>
         </li>
       <% end %>
     </ul>

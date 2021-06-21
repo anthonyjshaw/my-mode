@@ -23,15 +23,9 @@ a {
 }
 
 a:hover {
-
   text-decoration: none;
 }
 
-#landing-page-logo {
-  font-family: 'Leckerli One', cursive;
-  color: #202020;
-  font-size: 4.2em;
-}
 
 .flex-wrapper {
   display: flex;
@@ -41,3 +35,6 @@ a:hover {
 }
 
 
+.white-bckgrnd {
+  background: white;
+}

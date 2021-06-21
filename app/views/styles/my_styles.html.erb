@@ -3,7 +3,7 @@
 <h1>My Styles</h1>
 
 <% if @styles == [] %>
-<h2>No styles. Let's create one!</h2>
+<h2>No styles. Let's <%= link_to "create one!", new_style_path %></h2>
 <% else %>
 <% @styles.each do |style| %>
   <%= style.name %>

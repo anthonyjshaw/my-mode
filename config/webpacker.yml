@@ -16,6 +16,9 @@ default: &default
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
 
+
+  service_workers_entry_path: service_workers
+
   # Extract and emit a css file
   extract_css: false
 

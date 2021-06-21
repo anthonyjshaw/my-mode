@@ -1,7 +1,13 @@
 .banner {
-  background-image: url('banner.jpg');
-  height: 37vh;
-  background-size: cover;
+  text-align: center;
+
+}
+
+#landing-page-logo {
+  font-family: 'Leckerli One', cursive;
+  color: #202020;
+  font-size: 4.2em;
+
 }
 
 
@@ -18,14 +24,29 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
- }
+  .banner {
+  background-image: url('banner.jpg');
+  background-size: cover;
+  height: 500px;
+  text-align: right;
 
+ }
+}
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .banner {
+  background-image: url('banner.jpg');
+  background-size: cover;
   height: 500px;
+  text-align: right;
+
 }
+
+#landing-page-logo {
+  font-size: 5.2em;
+}
+
 }
 
 // XX-Large devices (larger desktops, 1400px and up)
