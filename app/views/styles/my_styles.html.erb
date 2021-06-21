@@ -1,9 +1,15 @@
+<div class="container my-5">
+
 <h1>My Styles</h1>
 
-
+<% if @styles == [] %>
+<h2>No styles. Let's create one!</h2>
+<% else %>
 <% @styles.each do |style| %>
   <%= style.name %>
 <% end %>
 
 
 <h2>Create a style</h2>
+<% end %>
+</div>
