@@ -34,7 +34,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   addActiveClassNav();
 
-   navigator.serviceWorker.register('./service_workers/service-worker.js').then(registration => {
+   navigator.serviceWorker.register('/service-worker.js').then(registration => {
     console.log('ServiceWorker registered: ', registration);
 
     let serviceWorker;
