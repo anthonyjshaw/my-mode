@@ -8,4 +8,8 @@ class StylePolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def my_styles?
+    true
+  end
 end

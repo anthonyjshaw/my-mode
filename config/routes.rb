@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :styles, only: %i[index]
 
-  get 'my-styles', to: 'items#my_styles', as: :my_styles
+  get 'my-styles', to: 'styles#my_styles', as: :my_styles
 
   get "men", to: 'pages#men', as: :men
   get 'men/:category/', to: "pages#index"
