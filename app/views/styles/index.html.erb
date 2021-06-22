@@ -1,6 +1,12 @@
 <div class="container my-5">
   <h1>Styles</h1>
   <p>Find styles made by other users.</p>
+  <div class="w-50 justify-content-center">
+  <%= form_tag styles_path, method: :get do %>
+  <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: 'find styles' %>
+  <%= submit_tag "search", class: 'form-inline' %>
+  <% end %>
+</div>
   <% @styles.each do |style| %>
   <p><%= style.name %></p>
   <% end %>
