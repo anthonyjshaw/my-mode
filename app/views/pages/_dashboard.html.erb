@@ -1,0 +1,16 @@
+<div class="container">
+
+<h1>Home</h1>
+
+<% unless current_user.first_name.nil?  %>
+<p>Welcome <%= current_user.first_name %></p>
+<% else %>
+<p>Welcome <%= current_user.username %></p>
+<% end %>
+
+<h2>Feed</h2>
+<%= link_to "Search for styles", styles_path  %>
+
+<h2>My Styles</h2>
+<%= link_to "See My styles", my_styles_path  %>
+</div>

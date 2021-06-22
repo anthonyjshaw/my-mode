@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :styles, only: %i[index]
-
+  get('about', to: 'pages#about', as: :about)
   get 'my-styles', to: 'styles#my_styles', as: :my_styles
   get 'blog', to: 'pages#blog', as: :blog
 

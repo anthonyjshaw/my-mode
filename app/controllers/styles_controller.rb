@@ -2,7 +2,11 @@ class StylesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @styles = policy_scope(Style)
+    if params[:query].present?
+      @styles = policy_scope(Style).search_by_name_and_description(params[:query])
+    else
+      @styles = policy_scope(Style)
+    end
   end
 
   def my_styles

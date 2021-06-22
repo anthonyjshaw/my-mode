@@ -32,9 +32,9 @@ gem 'pundit'
 gem 'faker'
 gem 'open-uri'
 gem 'cloudinary', '~> 1.16.0'
+gem 'pg_search', '~> 2.3.0'
 
 gem 'serviceworker-rails'
-
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

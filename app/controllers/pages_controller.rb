@@ -4,6 +4,8 @@ class PagesController < ApplicationController
   def home
   end
 
+  def about; end
+
   def show
     @item = Item.find(params[:id])
   end
