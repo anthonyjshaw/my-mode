@@ -1,3 +1,42 @@
 .clothes-card {
   background: transparent;
 }
+
+.round {
+  border-radius: 24px;
+}
+
+
+.card-username {
+  max-width: $image-dimensions;
+}
+
+
+.overlay {
+  display:none;
+  position:absolute;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 24px;
+  top: 0;
+  left: 0;
+  line-height: 200px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+
+}
+
+.overlay:hover {
+  display:revert;
+   position:absolute;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 24px;
+  top: 0;
+  left: 0;
+  line-height: 200px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+}

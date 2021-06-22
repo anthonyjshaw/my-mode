@@ -2,14 +2,19 @@
 
 <h1>My Styles</h1>
 
-<% if @styles == [] %>
+<% if @my_styles == [] %>
 <h2>No styles. Let's <%= link_to "create one!", new_style_path %></h2>
 <% else %>
-<% @styles.each do |style| %>
-  <%= style.name %>
+<% @my_styles.each do |style| %>
+  <div class="row row-align">
+<%= link_to style_path style do  %>
+  <%= cl_image_tag style.photo.key, class: 'round card-home'%>
+  <p><%= style.name %></p>
+  <% end %>
+  </div>
 <% end %>
 
 
-<h2>Create a style</h2>
+<h2 class="my-4">Create a style</h2>
 <% end %>
 </div>
