@@ -1,5 +1,4 @@
 class Style < ApplicationRecord
-
   # searchkick word_start: [:name]
 
   include PgSearch::Model

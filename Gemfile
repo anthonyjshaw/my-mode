@@ -35,6 +35,8 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'pg_search', '~> 2.3.0'
 gem 'searchkick', '~> 4.0'
 gem 'serviceworker-rails'
+gem 'acts_as_favoritor'
+
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

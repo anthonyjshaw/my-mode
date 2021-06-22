@@ -24,13 +24,19 @@ class StylesController < ApplicationController
 
   def create
     @style = Style.new(style_params)
+    @style.user = current_user
     authorize @style
+    if @style.save!
+      redirect_to style_path(@style)
+    else
+      render :new
+    end
   end
 
   private
 
   def style_params
-    params.require(:style).permit(:name)
+    params.require(:style).permit(:name, :description, :photo)
   end
 
   def set_styles
