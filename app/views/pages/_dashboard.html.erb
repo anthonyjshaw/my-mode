@@ -58,13 +58,13 @@
   </div>
   <div class="row justify-content-around my-5">
         <% @liked_styles.each do |style| %>
-
+        <%= link_to do  %>
           <% if style.photo.attached? %>
       <%= cl_image_tag style.photo.key, class: 'card-home round' %>
       <% else %>
       <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
       <% end %>
-
+        <% end %>
         <% end %>
   </div>
 
