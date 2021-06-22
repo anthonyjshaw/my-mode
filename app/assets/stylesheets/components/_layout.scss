@@ -1,18 +1,19 @@
+.grid {
+  display: grid;
+grid-template-columns: 1fr 1fr 1fr;
 
-.card-home {
-  width: $image-dimensions;
-  height: $image-dimensions;
-  object-fit: cover;
 }
 
-
-.clothes {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+.grid-item {
+  position: relative;
   overflow: hidden;
+
 }
 
+
+.row-align {
+  justify-content: center;
+}
 
 
 @media (min-width: 576px) {  }
@@ -25,11 +26,10 @@
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-    .card-home {
-      width: 200px;
-      height: 200px;
+    .row-align {
+      justify-content: flex-start;
+      margin-left: 0
     }
-
   }
 
 

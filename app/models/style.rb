@@ -1,4 +1,7 @@
 class Style < ApplicationRecord
+
+  # searchkick word_start: [:name]
+
   include PgSearch::Model
 
   pg_search_scope :search_by_name_and_description,

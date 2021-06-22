@@ -1,8 +1,9 @@
 class StylesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-
+  before_action :set_styles, only: %i[show update destroy edit]
   def index
     if params[:query].present?
+      # @styles = policy_scope(Style).search 'sum', fields: [:name], match: :word_middle
       @styles = policy_scope(Style).search_by_name_and_description(params[:query])
     else
       @styles = policy_scope(Style)
@@ -10,14 +11,16 @@ class StylesController < ApplicationController
   end
 
   def my_styles
-    @styles = policy_scope(Style).where(user: current_user)
-    authorize @styles
+    @my_styles = policy_scope(Style).where(user: current_user)
+    authorize @my_styles
   end
 
   def new
     @style = Style.new
     authorize @style
   end
+
+  def show; end
 
   def create
     @style = Style.new(style_params)
@@ -29,4 +32,20 @@ class StylesController < ApplicationController
   def style_params
     params.require(:style).permit(:name)
   end
+
+  def set_styles
+    @style = Style.find(params[:id])
+    authorize @style
+  end
+
+  def style_items
+    @accessories = @style.items.find_by(category: 'accessories')
+    @top = @style.items.search
+    @accessories = @style.items.find_by(category: 'accessories')
+    @accessories = @style.items.find_by(category: 'accessories')
+  end
+
+  #   ITEM_CATEGORIES = %w[socks t-shirt shirts trousers underwear accessories]
+
+
 end
