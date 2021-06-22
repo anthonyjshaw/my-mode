@@ -33,6 +33,11 @@ class StylesController < ApplicationController
     end
   end
 
+  def liked_styles
+    @styles = current_user.favorited_by_type('Style').order(created_at: :asc)
+    authorize @styles
+  end
+
   private
 
   def style_params

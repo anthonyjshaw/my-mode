@@ -1,10 +1,10 @@
 <div class="container my-5">
   <h1 class='page-heading'>Styles</h1>
   <p>Find styles made by other users.</p>
-  <div class="w-50 my-5">
+  <div class="w-100 my-5">
   <%= form_tag styles_path, method: :get, class: 'form-inline' do %>
-    <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: 'find styles' %>
-    <%= submit_tag "search", class: 'form-inline' %>
+    <%= text_field_tag :query, params[:query], class: 'form-control round', label: 'Find styles', placeholder: 'find styles' %>
+    <%= submit_tag "search", class: 'button my-2' %>
   <% end %>
 </div>
     <div class="row row-align">

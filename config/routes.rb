@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'my-styles', to: 'styles#my_styles', as: :my_styles
   get 'blog', to: 'pages#blog', as: :blog
 
-  get 'liked-styles', to: 'styles#liked_styles', as: :liked_styles_path
+  get 'liked-styles', to: 'styles#liked_styles', as: :liked_styles
   resources :styles do
   resources :items, only: %i[new create edit update]
 end
