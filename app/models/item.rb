@@ -4,16 +4,12 @@ class Item < ApplicationRecord
   ITEM_CATEGORIES = %w[socks t-shirt shirts trousers underwear accessories]
   SIZE_CATEGORIES = %w[S M L XL XXL]
 
-  enum gender: %i[women men neutral]
   validates_presence_of :clothes_type,
                         :color,
                         :description,
                         :size,
                         :price,
-                        :quantity,
-                        :name,
-                        :is_in_stock,
-                        :gender
+                        :name
   validates :price, numericality: { greater_than: 0 }
   validates :clothes_type, inclusion: { in: ITEM_CATEGORIES }
   validates :size, inclusion: { in: SIZE_CATEGORIES }
