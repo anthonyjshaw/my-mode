@@ -3,30 +3,69 @@
     <div class="col">
       <h1 class='page-heading'>Home</h1>
       <% unless current_user.first_name.nil?  %>
-      <p>Welcome <%= current_user.first_name %></p>
+      <p class='intro'>Welcome <%= current_user.first_name %></p>
       <% else %>
-      <p>Welcome <%= current_user.username %></p>
+      <p class='intro'>Welcome <%= current_user.username %></p>
       <% end %>
     </div>
   </div>
+  <hr>
   <div class="row my-3">
     <div class="col">
       <h2>Feed</h2>
-        <%= link_to "Search for styles", styles_path  %>
-
+     <%= link_to "Search for styles", styles_path  %>
     </div>
   </div>
+    <div class="row justify-content-around">
+        <% @feed.each do |style| %>
+
+        <%= link_to  style_path(style) do %>
+          <% if style.photo.attached? %>
+      <%= cl_image_tag style.photo.key, class: 'card-home round' %>
+      <% else %>
+      <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
+      <% end %>
+        <% end %>
+
+        <% end %>
+  </div>
+  <hr>
    <div class="row my-3">
     <div class="col">
       <h2>My Styles</h2>
       <%= link_to "See My styles", my_styles_path  %>
     </div>
   </div>
+  <div class="row justify-content-around">
+        <% @my_styles.each do |style| %>
+
+            <%= link_to style_path(style) do %>
+            <% if style.photo.attached? %>
+              <%= cl_image_tag style.photo.key, class: 'card-home round' %>
+            <% else %>
+              <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
+            <% end %>
+          <% end %>
+
+        <% end %>
+  </div>
+  <hr>
   <div class="row my-3">
     <div class="col">
       <h2>Liked Styles</h2>
       <%= link_to "See My styles", my_styles_path  %>
     </div>
+  </div>
+  <div class="row justify-content-around my-5">
+        <% @liked_styles.each do |style| %>
+
+          <% if style.photo.attached? %>
+      <%= cl_image_tag style.photo.key, class: 'card-home round' %>
+      <% else %>
+      <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
+      <% end %>
+
+        <% end %>
   </div>
 
 </div>

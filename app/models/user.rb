@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :styles
+  # acts_as_favoritor
 
   validates_presence_of :username
   validates_uniqueness_of :email, :username

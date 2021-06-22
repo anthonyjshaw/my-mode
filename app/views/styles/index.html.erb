@@ -1,5 +1,5 @@
 <div class="container my-5">
-  <h1>Styles</h1>
+  <h1 class='page-heading'>Styles</h1>
   <p>Find styles made by other users.</p>
   <div class="w-50 my-5">
   <%= form_tag styles_path, method: :get, class: 'form-inline' do %>
@@ -7,15 +7,21 @@
     <%= submit_tag "search", class: 'form-inline' %>
   <% end %>
 </div>
-    <% @styles.each do |style| %>
     <div class="row row-align">
+    <% @styles.each do |style| %>
+    <div class="col col-lg-4 my-5">
     <%= link_to style_path(style) do %>
-      <%= cl_image_tag style.photo.key, class: 'card-home round'  %>
+      <% if style.photo.attached? %>
+      <%= cl_image_tag style.photo.key, class: 'card-home round' %>
+      <% else %>
+      <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
+      <% end %>
+      <p class='card-username text-right my-1'><%= style.user.username %></p>
       <div class="overlay">
         <p>Text</p>
       </div>
-      <p class='card-username text-right my-1'><%= style.user.username %></p>
       <% end %>
-    </div>
+      </div>
     <% end %>
+    </div>
 </div>
