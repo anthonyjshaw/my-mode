@@ -20,4 +20,8 @@ class StylePolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def liked_styles?
+    true
+  end
 end

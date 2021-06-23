@@ -18,6 +18,15 @@ body h1, h2, h3, p {
 
 // Application wide styles:
 
+.page-heading {
+
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+
+
+
 a {
   color: black;
 }
@@ -38,3 +47,27 @@ a:hover {
 .white-bckgrnd {
   background: white;
 }
+
+
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+.page-heading {
+
+  text-align: left;
+   font-size: 4.2rem;
+}
+
+  }
+
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {  }

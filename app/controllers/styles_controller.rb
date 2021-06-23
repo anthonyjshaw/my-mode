@@ -24,13 +24,24 @@ class StylesController < ApplicationController
 
   def create
     @style = Style.new(style_params)
+    @style.user = current_user
     authorize @style
+    if @style.save!
+      redirect_to style_path(@style)
+    else
+      render :new
+    end
+  end
+
+  def liked_styles
+    @styles = current_user.favorited_by_type('Style').order(created_at: :asc)
+    authorize @styles
   end
 
   private
 
   def style_params
-    params.require(:style).permit(:name)
+    params.require(:style).permit(:name, :description, :photo)
   end
 
   def set_styles

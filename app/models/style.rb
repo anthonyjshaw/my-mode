@@ -1,6 +1,7 @@
 class Style < ApplicationRecord
-
   # searchkick word_start: [:name]
+
+  acts_as_favoritable
 
   include PgSearch::Model
 

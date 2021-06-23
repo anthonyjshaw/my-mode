@@ -1,4 +1,11 @@
-<div class="container my-4">
+<div class="container my-4 text-center">
 
-<h1>Create a lookbook</h1>
+<h1>Create a style</h1>
+
+<%= simple_form_for @style do |f| %>
+<%= f.input :name %>
+<%= f.input :description %>
+<%= f.input :photo %>
+<%= f.submit %>
+<% end %>
 </div>
