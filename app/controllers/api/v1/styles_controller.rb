@@ -48,7 +48,7 @@ module Api
 
       def render_error
         render json: { errors: @style.errors.full_messages },
-          status: :unprocessable_entity
+               status: :unprocessable_entity
       end
     end
   end
