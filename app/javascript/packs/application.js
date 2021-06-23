@@ -33,6 +33,11 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
+  fetch("http://localhost:3000/api/v1/styles")
+  .then(response => response.json())
+  .then((data) => {
+      console.log(data);
+    });
   addActiveClassNav();
   initServiceWorker();
 

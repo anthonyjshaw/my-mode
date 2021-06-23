@@ -57,6 +57,4 @@ class StylesController < ApplicationController
   end
 
   #   ITEM_CATEGORIES = %w[socks t-shirt shirts trousers underwear accessories]
-
-
 end

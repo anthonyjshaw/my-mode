@@ -41,6 +41,7 @@ gem 'acts_as_favoritor'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'simple_token_authentication'
 
 # For development and test environments
 group :development, :test do
@@ -50,6 +51,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'launchy'
+  gem 'rspec'
 end
 
 group :development do

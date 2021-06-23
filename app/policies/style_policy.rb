@@ -24,4 +24,18 @@ class StylePolicy < ApplicationPolicy
   def liked_styles?
     true
   end
+
+  def update?
+    set_auth
+  end
+
+  def destroy?
+    set_auth
+  end
+
+  private
+
+  def set_auth
+    record.user == user
+  end
 end
