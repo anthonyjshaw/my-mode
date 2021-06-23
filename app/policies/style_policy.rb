@@ -1,5 +1,4 @@
 class StylePolicy < ApplicationPolicy
-  before_action :set_auth, only: %i[update destroy]
   class Scope < Scope
     def resolve
       scope.all
@@ -26,9 +25,13 @@ class StylePolicy < ApplicationPolicy
     true
   end
 
-  def update?; end
+  def update?
+    set_auth
+  end
 
-  def destroy?; end
+  def destroy?
+    set_auth
+  end
 
   private
 

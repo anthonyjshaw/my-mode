@@ -18,8 +18,19 @@ module Api
         end
       end
 
+      def create
+        @style = Style.new(style_params)
+        @style.user = current_user
+        authorize @style
+        if @style.save
+          render :show, status: :created
+        else
+          render_error
+        end
+      end
+
       def destroy
-        @restaurant.destroy
+        @style.destroy
         head :no_content
         # No need to create a `destroy.json.jbuilder` view
       end

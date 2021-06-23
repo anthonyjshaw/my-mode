@@ -1,4 +1,8 @@
-<div class="style-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @style.photo.key %>)">
+<div class="style-banner"
+     style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+                              url(<%= @style.photo.attached? ? cl_image_path(@style.photo.key) : asset_path('cover.png') %>)
+            "
+>
 <div class="container">
 <h1 class='page-heading white text-center'><%= @style.name %></h1>
 </div>
