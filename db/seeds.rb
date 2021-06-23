@@ -45,7 +45,7 @@ puts 'seeding styles'
 
 
 
-  5.times do
+  10.times do
     username = Faker::Internet.username
     email = Faker::Internet.email
     first_name = Faker::Name.first_name
@@ -66,6 +66,16 @@ puts 'seeding styles'
         style = Style.create!(name: style_name, description: description, user: user).photo.attach(io: file, filename: "#{style_name}.jpg", content_type: 'image/jpg')
       end
     end
+
+    puts 'seeded!'
+
+    puts 'seeding items...'
+
+    Style.all.each do |style|
+      adjective = %w[cool stylish pretty amazing sleek].sample
+      accessory =
+
+    end
 # clothes_type = Item::ITEM_CATEGORIES.sample
 # description = Faker::Hipster.sentences(number: 1)
 # size = Item::SIZE_CATEGORIES.sample
@@ -84,3 +94,5 @@ puts 'seeding styles'
 
 
 puts 'seeded!'
+
+puts "You have #{User.count} users, #{Style.count} styles and #{Item.count} items. Not bad!"
