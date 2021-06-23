@@ -7,7 +7,16 @@ Rails.application.routes.draw do
 
   get 'liked-styles', to: 'styles#liked_styles', as: :liked_styles
   resources :styles do
-  resources :items, only: %i[new create edit update]
-end
+    resources :items, only: %i[new create edit update]
+  end
+
+  # API routes
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :styles, only: [ :index ]
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
