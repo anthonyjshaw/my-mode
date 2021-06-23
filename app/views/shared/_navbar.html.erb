@@ -10,6 +10,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= form_tag styles_path, method: :get, class: 'form-inline' do %>
+          <%= text_field_tag :query, params[:query], class: 'form-control round', label: 'Find styles', placeholder: 'find styles' %>
+        <% end %>
+      </li>
       <li class='nav-item'>
         <%= link_to 'About', about_path, class:'nav-link', id:'nav-link-white' %>
       </li>
