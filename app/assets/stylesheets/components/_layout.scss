@@ -10,11 +10,31 @@ grid-template-columns: 1fr 1fr 1fr;
 
 }
 
+.skewY-minus-10 {
+  transform: skewY(-10deg);
+}
+
+.skewY-10 {
+  transform: skewY(10deg);
+}
+
 
 .row-align {
   justify-content: center;
 }
 
+.wrapper {
+
+    height: 489px;
+    }
+
+
+    .landing-page-copy {
+      transform: skewY(-10deg);
+    }
+    .landing-page-copy-10 {
+      transform: skewY(10deg);
+    }
 
 @media (min-width: 576px) {  }
 
@@ -28,6 +48,15 @@ grid-template-columns: 1fr 1fr 1fr;
 @media (min-width: 1200px) {
     .row-align {
       justify-content: flex-start;
+    }
+
+    .wrapper {
+    margin-top: 127px;
+    height: 211px;
+    }
+
+    .landing-page-copy {
+      transform: skewY(-10deg);
     }
   }
 

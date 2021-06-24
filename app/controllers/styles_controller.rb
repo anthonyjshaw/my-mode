@@ -50,11 +50,9 @@ class StylesController < ApplicationController
   end
 
   def style_items
-    @accessories = @style.items.find_by(category: 'accessories')
-    @top = @style.items.search
-    @accessories = @style.items.find_by(category: 'accessories')
-    @accessories = @style.items.find_by(category: 'accessories')
+    @accessory = @style.items.find_by(category: 'accessories')
+    @top = @style.items.find_by(category: 'tops')
+    @trouser = @style.items.find_by(category: 'trousers')
+    @footwear = @style.items.find_by(category: 'footwear')
   end
-
-  #   ITEM_CATEGORIES = %w[socks t-shirt shirts trousers underwear accessories]
 end

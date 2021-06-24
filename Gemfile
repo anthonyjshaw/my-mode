@@ -42,6 +42,8 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'simple_token_authentication'
+gem 'inline_svg'
+
 
 # For development and test environments
 group :development, :test do

@@ -1,24 +1,74 @@
-
-    <div class="banner">
-        <div class="container">
-          <h1 class='py-3' id='landing-page-logo'>my mode</h1>
-          <p><%= link_to "Find your style", styles_path, class:'button btn-black'  %></p>
-        </div>
+<div class="banner">
+   <div class="container">
+      <h1 class='py-3' id='landing-page-logo'>my mode</h1>
+      <p><%= link_to "Find your style", styles_path, class:'button btn-black'  %></p>
    </div>
-<div class='container my-5'>
-  <div class="row">
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col">
-      <h2>The new way to share fashion ideas</h2>
-      <p>Tired of your wardrobe? <br>Need inspiration? <br> Or do you want to show off the drip?</p>
-      <p>my mode allows you to create and share styles with other users.</p>
-      <%= link_to "Create a style", my_styles_path, class: 'button btn-black'  %>
-    </div>
-  </div>
 </div>
+<div class="container my-3">
+   <div class="row">
+      <div class="col">
+      </div>
+   </div>
+</div>
+<div class="wrapper my-3">
+   <div class='container'>
+      <div class="row">
+         <div class="col-sm-6 mb-5">
+            <%= image_tag "landing_page_1.jpg", alt: "models posing in front of warehouse", class: 'landing_page_img'%>
+         </div>
+         <div class="col-sm-6">
+            <h2>The new way to share fashion ideas</h2>
+            <p>Tired of your wardrobe? <br>Need inspiration? <br> Or do you want to show off the drip?</p>
+            <p>my mode allows you to create and share styles with other users.</p>
+            <%= link_to "Find your syle", styles_path, class: 'button btn-black'  %>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="my-5">
+   <div class="container">
+      <div class="col text-center">
+         <%= inline_svg 'clothes-banner.svg'%>
+      </div>
+   </div>
+</div>
+<div class="wrapper my-5">
+   <div class='container'>
+      <div class="row">
+         <div class="col-sm-6 mb-5">
+            <%= image_tag "landing_page_2.jpg", alt: "model with yellow puffa jacket and grey top", class: 'landing_page_img'%>
+         </div>
+         <div class="col-sm-6">
+            <h2>The new way to share fashion ideas</h2>
+            <p>Tired of your wardrobe? <br>Need inspiration? <br> Or do you want to show off the drip?</p>
+            <p>my mode allows you to create and share styles with other users.</p>
+            <%= link_to "Sign up and get started", new_user_registration_path, class: 'button btn-black'  %>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="my-5">
+   <div class="container">
+      <div class="row">
+         <div class="col text-center">
+            <%= inline_svg 'clothes-banner.svg' %>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="wrapper my-5">
+   <div class='container'>
+      <div class="row">
+         <div class="col-sm-6 mb-5">
+            <%= image_tag "landing_page_3.jpg", alt: "model with yellow puffa jacket and grey top", class: 'landing_page_img'%>
+         </div>
+         <div class="col-sm-6">
+            <h2>The new way to share fashion ideas</h2>
+            <p>Tired of your wardrobe? <br>Need inspiration? <br> Or do you want to show off the drip?</p>
+            <p>my mode allows you to create and share styles with other users.</p>
+            <%= link_to "Sign up and get started", new_user_registration_path, class: 'button btn-black'  %>
+         </div>
+      </div>
+   </div>
+</div>
+
