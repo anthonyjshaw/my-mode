@@ -60,6 +60,7 @@ class StylesController < ApplicationController
     @accessory = @style.items.find_by(clothes_type: 'accessories')
     @top = @style.items.find_by(clothes_type: 'tops')
     @trouser = @style.items.find_by(clothes_type: 'trousers')
+    @socks = @style.items.find_by(clothes_type: 'socks')
     @footwear = @style.items.find_by(clothes_type: 'footwear')
   end
 end

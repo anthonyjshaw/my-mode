@@ -10,13 +10,19 @@
 
 <div class="container my-5">
 
-<p><%= @style.description %></p>
-<% if @style.items.present? %>
-<p><%= @accessory.name %></p>
-<p><%= @accessory.description %></p>
+
+
+<% @style.items.each do |item| %>
+<p><%= "#{item.name}" %></p>
+<p>Description: <%= item.description %></p>
+<%= cl_image_tag item.photo.key, class: 'card-home' %>
 <% end %>
 
 
+<% unless @style.items.count > 4 %>
 <%= render 'new_item', style: @style, item: @item, remote: true %>
+<% end %>
 
 </div>
+
+

@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# This is the seed file for my mode.
 
 puts 'destroying items...'
 
@@ -45,7 +39,7 @@ puts 'seeding styles'
 
 
 
-10.times do
+100.times do |i|
   username = Faker::Internet.username
   email = Faker::Internet.email
   first_name = Faker::Name.first_name
@@ -55,17 +49,20 @@ puts 'seeding styles'
                       password: '123456',
                       first_name: first_name,
                       last_name: last_name)
+puts "user #{i} created!"
 end
 
+'seeded!'
 User.all.each do |user|
-  5.times do
+  rand(1..3).times do |i|
     adjective = %w[Cool Stylish Pretty Amazing Sleek Summer Winter Autumn Spring Freaky].sample
-    noun = %w[collection style mode feeling mood vibe idea ideas move thoughts plans ]
+    noun = %w[collection style mode feeling mood vibe idea ideas move thoughts plans ].sample
     style_name = "#{adjective} #{noun}"
     description = Faker::Hipster.paragraph
     url = "https://source.unsplash.com/1600x900/?#{style_name}"
     file = URI.open(url)
     style = Style.create!(name: style_name, description: description, user: user).photo.attach(io: file, filename: "#{style_name}.jpg", content_type: 'image/jpg')
+    puts "style #{i + 1} created! It's a #{style.name}!"
   end
 end
 
@@ -73,42 +70,13 @@ puts 'seeded!'
 
 puts 'seeding items...'
 
-Style.all.each do |style|
-
-  Item::ITEM_CATEGORIES.each do |category|
-
-    adjective = %w[cool stylish pretty amazing sleek].sample
-    clothes_type = category
-    size = Item::SIZE_CATEGORIES.sample
-    name = "#{adjective} #{clothes_name(clothes_type)}"
-    price: Faker::Number.decimal(l_digits: 2)
-    color: Faker::Color.color_name
-    description: Faker::Hipster.paragraph
-    url = "https://source.unsplash.com/1600x900/?#{name}"
-    file = URI.open(url)
-    Item.create!(size: size,
-                 clothes_type: clothes_type,
-                 price: price,
-                 description: description,
-                 color: color,
-                 style: style,
-                 name: name).photo.attach(io: file, filename: "item_#{name}.jpg", content_type: 'image/jpg')
-  end
-end
-
-puts 'seeded!'
-
-puts "You have #{User.count} users, #{Style.count} styles and #{Item.count} items. Not bad!"
-
-  ITEM_CATEGORIES = %w[socks tops trousers accessories footwear]
-
 
 def clothes_name(category)
   case category
   when 'socks'
     "#{%w[knee\ high ankle\ length invisible\ funky novelty running].sample} socks"
   when 'tops'
-    %[t-shirt dress shirt jumper sweatshirt].sample
+    %w[t-shirt dress shirt jumper sweatshirt].sample
   when 'trousers'
     %w[shorts trousers pants pantaloons joggers tracksuit\ bottoms].sample
   when 'accessories'
@@ -119,6 +87,40 @@ def clothes_name(category)
     return ""
   end
 end
+
+Style.all.each do |style|
+
+  Item::ITEM_CATEGORIES.each do |category|
+
+    adjective = %w[cool stylish pretty amazing sleek].sample
+    clothes_type = category
+    size = Item::SIZE_CATEGORIES.sample
+    name = "#{adjective} #{clothes_name(clothes_type)}"
+    price = Faker::Number.decimal(l_digits: 2)
+    color = Faker::Color.color_name
+    description = Faker::Hipster.paragraph
+    url = "https://source.unsplash.com/1600x900/?#{name}"
+    file = URI.open(url)
+    Item.create!(size: size,
+                 clothes_type: clothes_type,
+                 price: price,
+                 description: description,
+                 color: color,
+                 style: style,
+                 name: name).photo.attach(io: file, filename: "item_#{name}.jpg", content_type: 'image/jpg')
+    puts "#{style.name}'s #{category} is seeded!"
+  end
+  puts 'next style!'
+  puts "-----------------------"
+end
+
+puts 'seeded!'
+
+puts "You have #{User.count} users, #{Style.count} styles and #{Item.count} items. Not bad!"
+
+
+
+
 
 
 
