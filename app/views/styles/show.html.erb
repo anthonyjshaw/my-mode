@@ -11,4 +11,12 @@
 <div class="container my-5">
 
 <p><%= @style.description %></p>
+<% if @style.items.present? %>
+<p><%= @accessory.name %></p>
+<p><%= @accessory.description %></p>
+<% end %>
+
+
+<%= render 'new_item', style: @style, item: @item, remote: true %>
+
 </div>

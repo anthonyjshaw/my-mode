@@ -21,3 +21,5 @@ class PagesTest < ApplicationSystemTestCase
     end
   end
 end
+
+

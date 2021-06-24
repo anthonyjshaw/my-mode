@@ -6,9 +6,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.style = Style.find(params[:style_id])
     authorize @item
     if @item.save
-      redirect_to men_path
+      redirect_to style_path(@item.style)
     else
       render :new
     end

@@ -1,6 +1,9 @@
 class StylesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_styles, only: %i[show update destroy edit]
+  before_action :set_style, only: %i[show update destroy edit]
+  before_action :style_items, only: :show
+  before_action :set_item, only: %i[show new]
+
   def index
     if params[:query].present?
       # @styles = policy_scope(Style).search 'sum', fields: [:name], match: :word_middle
@@ -44,15 +47,19 @@ class StylesController < ApplicationController
     params.require(:style).permit(:name, :description, :photo)
   end
 
-  def set_styles
+  def set_style
     @style = Style.find(params[:id])
     authorize @style
   end
 
+  def set_item
+    @item = Item.new
+  end
+
   def style_items
-    @accessory = @style.items.find_by(category: 'accessories')
-    @top = @style.items.find_by(category: 'tops')
-    @trouser = @style.items.find_by(category: 'trousers')
-    @footwear = @style.items.find_by(category: 'footwear')
+    @accessory = @style.items.find_by(clothes_type: 'accessories')
+    @top = @style.items.find_by(clothes_type: 'tops')
+    @trouser = @style.items.find_by(clothes_type: 'trousers')
+    @footwear = @style.items.find_by(clothes_type: 'footwear')
   end
 end

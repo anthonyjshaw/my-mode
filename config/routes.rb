@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'liked-styles', to: 'styles#liked_styles', as: :liked_styles
   resources :styles do
-    resources :items, only: %i[new create edit update]
+    resources :items, only: %i[new create edit update destroy]
   end
 
   # API routes

@@ -1,0 +1,12 @@
+# Styles
+
+summer_look:
+  name: "Summer Look"
+  description: "Looking for a new summer look!"
+  user: james
+
+autumn_look:
+  name: 'Autumn Look'
+  description: 'This is a really stylish look'
+  user: alan
+

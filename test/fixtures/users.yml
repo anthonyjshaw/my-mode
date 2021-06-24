@@ -3,3 +3,12 @@ james:
   first_name: "James"
   last_name: "Abitbol"
 
+mike:
+  email: 'mike@mike.com'
+  first_name: 'Mike'
+  last_name: 'Smithee'
+
+alan:
+  email: 'alan@alan.com'
+  first_name: 'Alan'
+  last_name: 'Bloggs'

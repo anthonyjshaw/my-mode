@@ -12,4 +12,10 @@ class StyleTest < ActiveSupport::TestCase
     assert_not style.save, 'User is not present'
   end
 
+  test 'search should return word based on partial match' do
+    search = Style.search_by_name_and_description('sum')
+    search.each {|result| puts result.name}
+    assert search
+  end
+
 end
