@@ -16,8 +16,11 @@ class StylesTest < ApplicationSystemTestCase
     puts accessory
     visit "/styles/#{style.id}"
     save_and_open_screenshot
-    assert_selector 'p', text: accessory.name
-    assert_selector 'p', text: accessory.description
+    style.items.each do |item|
+      assert_selector 'p', text: item.name
+      assert_selector 'img'
+      assert_selector 'p', text: item.description
+    end
   end
 
 end

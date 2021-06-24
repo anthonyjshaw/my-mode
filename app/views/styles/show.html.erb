@@ -12,7 +12,11 @@
   <% @style.items.each do |item| %>
     <p><%= item.clothes_type.singularize.capitalize %>: <%= "#{item.name}" %></p>
     <p>Description: <%= item.description %></p>
-    <%= cl_image_tag item.photo.key, class: 'card-home round' %>
+    <% if item.photo.attached? %>
+      <%= cl_image_tag item.photo.key, class: 'card-home round' %>
+    <% else %>
+      <%= image_tag "cover.png", alt: "alttext", class: 'card-home round' %>
+    <% end %>
   <% end %>
 
   <% unless @style.items.count > 4 %>
