@@ -7,4 +7,6 @@ class UserTest < ActiveSupport::TestCase
     user2 = user1.dup
     assert_not user2.valid?, "user1's username and email is the same as user2's."
   end
+
+  test 'should be able to like/save styles'
 end
