@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home search blog]
+  skip_before_action :authenticate_user!, only: %i[home search blog about]
 
   def home
     @feed = policy_scope(Style).order(created_at: :desc).first(3)

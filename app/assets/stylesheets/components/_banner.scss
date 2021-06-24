@@ -1,5 +1,9 @@
 .banner {
   text-align: center;
+  background: #dfeaeb;
+  background-size: cover;
+  height: 200px;
+
 
 }
 
@@ -18,6 +22,17 @@
   align-items: center;
 }
 
+.svg-banner {
+  width: 90%;
+}
+
+
+.sign-up-banner {
+  background-image: asset-url('sign-up-banner.jpg');
+}
+
+
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
 
@@ -32,7 +47,7 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .banner {
-  background-image: asset-url('banner.jpg');
+  background-image:  asset-url('banner.jpg');
   background-size: cover;
   height: 500px;
   text-align: right;
@@ -46,7 +61,7 @@
   .banner {
   background-image: asset-url('banner.jpg');
   background-size: cover;
-  height: 500px;
+  height: 428px;
   text-align: right;
 
 }
@@ -57,6 +72,13 @@
   text-align: right;
   background-position: center;
 }
+
+.sign-up-banner {
+  background-image: asset-url('sign-up-banner.jpg');
+  height: 200px;
+}
+
+
 }
 
 #landing-page-logo {

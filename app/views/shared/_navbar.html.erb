@@ -3,6 +3,7 @@
     <%= image_tag "logo-circle.png", alt: "my-mode circle" %>
     <% end %>
 
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon" id="navbar-toggler-icon-light"></span>
     <span class="navbar-toggler-icon-cross"></span>
@@ -10,10 +11,10 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item searchbar">
         <%= form_tag styles_path, method: :get, class: 'form-inline' do %>
           <%= text_field_tag :query, params[:query], class: 'form-control round', label: 'Find styles', placeholder: 'find styles' %>
-        <% end %>
+      <% end %>
       </li>
       <li class='nav-item'>
         <%= link_to 'About', about_path, class:'nav-link', id:'nav-link-white' %>
