@@ -11,9 +11,13 @@ class PagesTest < ApplicationSystemTestCase
   test 'visting the index page logged in takes you to the dashboard' do
     login_as users(:james)
     visit '/'
-    save_and_open_screenshot
 
     assert_selector 'h1', text: 'Home'
     assert_selector 'p', text: 'Welcome James'
+
+    h2_headers = %w[Feed My\ Styles Liked\ Styles]
+    h2_headers.each do |header|
+      assert_selector 'h2', text: "#{header}"
+    end
   end
 end

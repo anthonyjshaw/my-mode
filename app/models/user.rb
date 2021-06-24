@@ -7,6 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :styles
 
-  validates_presence_of :username
+  validates_presence_of :username, :email
   validates_uniqueness_of :email, :username
 end
