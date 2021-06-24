@@ -1,5 +1,6 @@
 # This is the seed file for my mode.
 
+
 puts 'destroying items...'
 
 Item.destroy_all
@@ -26,20 +27,11 @@ url = 'https://images.unsplash.com/photo-1590504425127-1e415bb06444?ixid=MnwxMjA
 file = URI.open(url)
 style = Style.create!(name: style_name, description: description, user: user).photo.attach(io: file, filename: 'summer.jpg', content_type: 'image/jpg')
 
-ITEM_CATEGORIES = %w[socks tops trousers accessories footwear]
-
-
-# item_top = Item.create!(style: style, name: 'jacket').photo.attach(io: URI.open("https://source.unsplash.com/1600x900/?#{item_top.name}"), filename: 'jacket.jpg', content_type: 'image/jpg')
-# item_bottom = Item.create!(style: style, name: 'shorts')
-# item_footwear = Item.create!(style: style, name: 'trainers')
-# item_accessories = Item.create!(style: style, name: 'hat')
-
-
-puts 'seeding styles'
 
 
 
-100.times do |i|
+# Seed 100 users
+2.times do |i|
   username = Faker::Internet.username
   email = Faker::Internet.email
   first_name = Faker::Name.first_name
@@ -49,10 +41,13 @@ puts 'seeding styles'
                       password: '123456',
                       first_name: first_name,
                       last_name: last_name)
-puts "user #{i} created!"
+puts "user #{i + 1} created!"
 end
+puts 'seeded!'
 
-'seeded!'
+puts 'seeding styles...'
+
+# Seed styles. Each user has at least one style
 User.all.each do |user|
   rand(1..3).times do |i|
     adjective = %w[Cool Stylish Pretty Amazing Sleek Summer Winter Autumn Spring Freaky].sample
@@ -62,15 +57,18 @@ User.all.each do |user|
     url = "https://source.unsplash.com/1600x900/?#{style_name}"
     file = URI.open(url)
     style = Style.create!(name: style_name, description: description, user: user).photo.attach(io: file, filename: "#{style_name}.jpg", content_type: 'image/jpg')
-    puts "style #{i + 1} created! It's a #{style.name}!"
+    puts "style #{i + 1} created! It's a #{style_name}!"
   end
 end
 
 puts 'seeded!'
 
+
+
+# Create items. Each Style has max of 5 items, sampled from the ITEMS_CATEGORIES array
 puts 'seeding items...'
 
-
+# Helper function to randomise the item name
 def clothes_name(category)
   case category
   when 'socks'
@@ -87,6 +85,7 @@ def clothes_name(category)
     return ""
   end
 end
+
 
 Style.all.each do |style|
 
