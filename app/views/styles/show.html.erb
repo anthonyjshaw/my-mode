@@ -3,12 +3,25 @@
                               url(<%= @style.photo.attached? ? cl_image_path(@style.photo.key) : asset_path('cover.png') %>)
             "
 >
-<div class="container">
-<h1 class='page-heading white text-center'><%= @style.name %></h1>
-</div>
+  <div class="container">
+    <h1 class='page-heading white text-center'><%= @style.name %></h1>
+  </div>
 </div>
 
 <div class="container my-5">
+  <% @style.items.each do |item| %>
+    <p><%= item.clothes_type.singularize.capitalize %>: <%= "#{item.name}" %></p>
+    <p>Description: <%= item.description %></p>
+    <% if item.photo.attached? %>
+      <%= cl_image_tag item.photo.key, class: 'card-home round' %>
+    <% else %>
+      <%= image_tag "cover.png", alt: "alttext", class: 'card-home round' %>
+    <% end %>
+  <% end %>
 
-<p><%= @style.description %></p>
+  <% unless @style.items.count > 4 %>
+    <%= render 'new_item', style: @style, item: @item, remote: true %>
+  <% end %>
 </div>
+
+

@@ -1,0 +1,12 @@
+# List of items
+
+
+hat:
+  name: 'hat'
+  color: 'wheat'
+  description: 'A really cool hat'
+  size: 'L'
+  price: 12.99
+  clothes_type: 'accessories'
+  style: summer_look
+
