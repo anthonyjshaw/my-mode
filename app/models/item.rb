@@ -13,4 +13,5 @@ class Item < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
   validates :clothes_type, inclusion: { in: ITEM_CATEGORIES }
   validates :size, inclusion: { in: SIZE_CATEGORIES }
+  validates_uniqueness_of :clothes_type, scope: :style
 end

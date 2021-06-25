@@ -8,6 +8,8 @@
 # this file is here to facilitate running it.
 #
 
+# Warning: do not change
+
 require "rubygems"
 
 m = Module.new do

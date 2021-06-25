@@ -6,7 +6,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def create?
-    record.style.user == user
+    true
   end
 
   def index?
@@ -14,10 +14,10 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def update?
-    record.style.user == user
+    true
   end
 
   def destroy
-    record.style.user == user
+    true
   end
 end

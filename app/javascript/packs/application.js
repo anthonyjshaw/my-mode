@@ -33,13 +33,25 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
-  fetch("/api/v1/styles/156")
-  .then(response => response.json())
-  .then((data) => {
-      console.log(data);
-    });
+  // fetch("/api/v1/styles/156")
+  // .then(response => response.json())
+  // .then((data) => {
+  //     console.log(data);
+  //   });
   addActiveClassNav();
   initServiceWorker();
+
+  const styleItems = document.querySelectorAll('.style-item-category');
+  if (styleItems) {
+    styleItems.forEach((element)=> {
+      const selectOption = document.querySelector(`option[value=${element.dataset.category}]`)
+      if (selectOption) {
+        if (selectOption.innerText === element.dataset.category) {
+          selectOption.setAttribute('disabled', "");
+        }
+      }
+    });
+  }
 
 });
 

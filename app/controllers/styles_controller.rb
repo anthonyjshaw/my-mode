@@ -23,7 +23,8 @@ class StylesController < ApplicationController
     authorize @style
   end
 
-  def show; end
+  def show
+  end
 
   def create
     @style = Style.new(style_params)
@@ -57,10 +58,6 @@ class StylesController < ApplicationController
   end
 
   def style_items
-    @accessory = @style.items.find_by(clothes_type: 'accessories')
-    @top = @style.items.find_by(clothes_type: 'tops')
-    @trouser = @style.items.find_by(clothes_type: 'trousers')
-    @socks = @style.items.find_by(clothes_type: 'socks')
-    @footwear = @style.items.find_by(clothes_type: 'footwear')
+    @items = @style.items.sort_by { |a| Item::ITEM_CATEGORIES.index(a[:clothes_type]) }
   end
 end
