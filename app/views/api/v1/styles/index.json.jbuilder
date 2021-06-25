@@ -1,3 +1,3 @@
-json.array! @styles do |restaurant|
-  json.extract! restaurant, :id, :name, :description
+json.array! @styles do |style|
+  json.extract! style, :id, :name, :description
 end

@@ -2,13 +2,10 @@
 
 <h1 class="page-heading">Blog</h1>
 
-<% 10.times do |i|%>
-<h2>Blog post <%= i + 1%>.</h2>
-<p>Paragraph 1</p>
-<p>Paragraph 2</p>
-<p>Paragraph 3</p>
 
-<% end%>
-
+<% @blogs.each do |blog| %>
+<%= blog.title %>
+<%= blog.content %>
+<% end %>
 </div>
 

@@ -10,11 +10,16 @@ Rails.application.routes.draw do
     resources :items, only: %i[new create edit update destroy]
   end
 
+  get 'blog', to: 'pages#blog', as: :blogs
+
+  resources :blogs, only: %i[new create edit update destroy]
+
   # API routes
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :styles, only: %i[ index show update destroy create]
+      resources :blogs, only: %i[ index show update destroy create]
     end
   end
 
