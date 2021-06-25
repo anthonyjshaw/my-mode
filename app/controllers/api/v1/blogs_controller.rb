@@ -19,11 +19,11 @@ module Api
       end
 
       def create
-        @blog = blog.new(blog_params)
+        @blog = Blog.new(blog_params)
         @blog.user = current_user
         authorize @blog
         if @blog.save
-          render :show, status: :created
+          render :index, status: :created
         else
           render_error
         end
@@ -38,7 +38,7 @@ module Api
       private
 
       def set_blog
-        @blog = blog.find(params[:id])
+        @blog = Blog.find(params[:id])
         authorize @blog  # For Pundit
       end
 

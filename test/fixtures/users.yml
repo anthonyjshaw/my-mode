@@ -12,3 +12,10 @@ alan:
   email: 'alan@alan.com'
   first_name: 'Alan'
   last_name: 'Bloggs'
+
+anthony:
+  email: 'ant@ant.com'
+  first_name: 'Anthony'
+  last_name: 'Shaw'
+  admin: true
+  employee: true

@@ -1,0 +1,6 @@
+# Test blog posts
+
+first_blog:
+  title: 'First blog'
+  content: 'This is the first blog post!'
+  user: anthony

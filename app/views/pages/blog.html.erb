@@ -2,10 +2,16 @@
 
 <h1 class="page-heading">Blog</h1>
 
+<% if user_signed_in? && current_user.employee? %>
+  <%= link_to "Create a new blog post", new_blog_path %>
+<% end %>
 
 <% @blogs.each do |blog| %>
-<%= blog.title %>
-<%= blog.content %>
+  <p>Author: <%= blog.user.full_name %></p>
+  <p>Date: <%= blog.created_at.strftime("%d/%m/%Y") %></p>
+  <%= link_to blog_path(blog) do  %>
+    <p><%= blog.title %></p>
+  <% end %>
 <% end %>
 </div>
 

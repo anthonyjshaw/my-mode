@@ -1,5 +1,8 @@
 class BlogsController < ApplicationController
-  def index
-    @blogs = policy_scope(Blog)
-  end
+    skip_before_action :authenticate_user!, only: %i[show ]
+
+    def show
+      @blog = Blog.find(params[:id])
+      authorize @blog
+    end
 end
