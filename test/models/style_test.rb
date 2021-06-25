@@ -26,9 +26,4 @@ class StyleTest < ActiveSupport::TestCase
     assert_not item2.valid?, "Cannot have more than one of item in same category"
   end
 
-  private
-
-  def test_helper
-  end
-
 end
