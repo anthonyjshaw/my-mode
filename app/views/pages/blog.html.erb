@@ -7,11 +7,12 @@
 <% end %>
 
 <% @blogs.each do |blog| %>
-  <p>Author: <%= blog.user.full_name %></p>
-  <p>Date: <%= blog.created_at.strftime("%d/%m/%Y") %></p>
   <%= link_to blog_path(blog) do  %>
     <p><%= blog.title %></p>
   <% end %>
+  <p><%= blog.content %></p>
+  <p><%= blog.user.full_name %></p>
+  <p><%= blog.created_at.strftime("%d/%m/%Y %H:%m") %></p>
 <% end %>
 </div>
 

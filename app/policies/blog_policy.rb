@@ -17,7 +17,11 @@ class BlogPolicy < ApplicationPolicy
     user.admin
   end
 
-  def update
+  def update?
+    user.admin
+  end
+
+  def destroy?
     user.admin
   end
 end

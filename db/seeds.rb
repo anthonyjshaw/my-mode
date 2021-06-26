@@ -3,15 +3,19 @@
 
 puts 'destroying items...'
 
-Item.destroy_all
+Item.delete_all
 puts "Items destroyed!"
 
 puts 'destroying styles...'
-Style.destroy_all
+Style.delete_all
 puts 'Styles destroyed!'
 
 puts 'destroying users...'
-User.destroy_all
+User.all.each do |user|
+  unless user.admin
+    User.delete(user)
+  end
+end
 puts 'Users destroyed'
 
 puts 'Seeding...'
@@ -19,19 +23,19 @@ puts 'Seeding...'
 puts 'seeding users...'
 
 # My styles
-user = User.create!(username: 'antshaw', email: 'shawanthonyj@gmail.com', password: '123456', first_name: 'Anthony', last_name: 'Shaw')
+
 
 style_name = "Summer Look"
 description = "Trying out a new summer look. What do you think?"
 url = 'https://images.unsplash.com/photo-1590504425127-1e415bb06444?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2665&q=80'
 file = URI.open(url)
-style = Style.create!(name: style_name, description: description, user: user).photo.attach(io: file, filename: 'summer.jpg', content_type: 'image/jpg')
+style = Style.create!(name: style_name, description: description, user: User.first).photo.attach(io: file, filename: 'summer.jpg', content_type: 'image/jpg')
 
 
 
 
-# Seed 100 users
-2.times do |i|
+# Seed 30 users
+30.times do |i|
   username = Faker::Internet.username
   email = Faker::Internet.email
   first_name = Faker::Name.first_name
@@ -40,6 +44,7 @@ style = Style.create!(name: style_name, description: description, user: user).ph
                       email: email,
                       password: '123456',
                       first_name: first_name,
+
                       last_name: last_name)
 puts "user #{i + 1} created!"
 end
