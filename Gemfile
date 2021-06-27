@@ -44,6 +44,14 @@ gem 'simple_form'
 gem 'simple_token_authentication'
 gem 'inline_svg'
 
+# OmniAuth gems
+gem 'omniauth-facebook'
+gem 'omniauth-google'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+
+
+
 # For development and test environments
 group :development, :test do
   gem 'pry-byebug'
