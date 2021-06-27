@@ -5,8 +5,8 @@ class BlogsTest < ApplicationSystemTestCase
     first_blog = Blog.first
     visit blog_posts_url
     assert_selector 'h1', text: 'Blog'
-    assert_selector 'p', text: "Author: #{first_blog.user.full_name}"
-    assert_selector 'p', text: "Date: #{first_blog.created_at.strftime("%d/%m/%Y")}"
+    assert_selector 'p', text: "#{first_blog.user.full_name}"
+    assert_selector 'p', text: "#{first_blog.created_at.strftime("%d/%m/%Y")}"
     assert_selector 'p', text: first_blog.title
   end
 
@@ -23,7 +23,7 @@ class BlogsTest < ApplicationSystemTestCase
     first_blog = Blog.first
     visit blog_url(first_blog)
     assert_selector 'h1', text: first_blog.title
-    assert_selector 'p', text: first_blog.content
+    assert_selector 'section', text: first_blog.content
   end
 
 end

@@ -19,7 +19,7 @@ class StyleTest < ActiveSupport::TestCase
   end
 
   test 'style should only have one item per category' do
-    user = User.create!(email: 'ant@ant.com', username: 'antshaw', first_name: "Anthony", last_name: "Shaw", password: '123456')
+    user = User.create!(email: 'ant@dave.com', username: 'antshaw', first_name: "Anthony", last_name: "Shaw", password: '123456')
     style = Style.create!(name: 'Summer look', description: 'Looking to test a new summer look.', user: user)
     item = Item.create!(name: 'hat', description: 'a hat', color: 'red', size: 'L', clothes_type: 'accessories', style: style, price: 12.99)
     item2 = item.dup
