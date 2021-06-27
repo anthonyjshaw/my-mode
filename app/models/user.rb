@@ -5,7 +5,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :styles
+  has_many :styles, dependent: :destroy
+  has_many :blogs
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
   validates_presence_of :username, :email
   validates_uniqueness_of :email, :username

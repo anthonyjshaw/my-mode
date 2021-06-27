@@ -13,5 +13,7 @@ class PagesController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def blog; end
+  def blog
+    @blogs = policy_scope(Blog)
+  end
 end

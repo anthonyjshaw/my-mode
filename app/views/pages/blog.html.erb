@@ -2,13 +2,17 @@
 
 <h1 class="page-heading">Blog</h1>
 
-<% 10.times do |i|%>
-<h2>Blog post <%= i + 1%>.</h2>
-<p>Paragraph 1</p>
-<p>Paragraph 2</p>
-<p>Paragraph 3</p>
+<% if user_signed_in? && current_user.employee? %>
+  <%= link_to "Create a new blog post", new_blog_path %>
+<% end %>
 
-<% end%>
-
+<% @blogs.each do |blog| %>
+  <%= link_to blog_path(blog) do  %>
+    <p><%= blog.title %></p>
+  <% end %>
+  <p><%= blog.content %></p>
+  <p><%= blog.user.full_name %></p>
+  <p><%= blog.created_at.strftime("%d/%m/%Y %H:%m") %></p>
+<% end %>
 </div>
 
