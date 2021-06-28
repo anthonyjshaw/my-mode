@@ -10,6 +10,5 @@ Simply add the different items you like to a "style", mixing and matching from d
 
 ## API
 Vist the API!
-[Styles](https://my-mode.herokuapp.com/api/v1/styles)
-[Users](https://my-mode.herokuapp.com/api/v1/users)
-[Items](https://my-mode.herokuapp.com/api/v1/items)
+[Styles](https://my-mode.cc/api/v1/styles)
+
