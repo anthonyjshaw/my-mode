@@ -42,7 +42,7 @@ style = Style.create!(name: style_name, description: description, user: User.fir
   last_name = Faker::Name.last_name
   user = User.create!(username: username,
                       email: email,
-                      password: '123456',
+                      password: ENV['PASSWORD']
                       first_name: first_name,
 
                       last_name: last_name)
@@ -58,7 +58,7 @@ User.all.each do |user|
     adjective = %w[Cool Stylish Pretty Amazing Sleek Summer Winter Autumn Spring Freaky Wonderful Masterful Awesome Nice Magical Superb Dour Depressing Dark Christmas].sample
     noun = %w[collection style mode feeling mood vibe idea ideas move thoughts plans wishlist group].sample
     style_name = "#{adjective} #{noun}"
-    description_line1 = ['Been thinking about my', 'Want to present my', 'Need to show off my', 'Feeling passionate about my', 'Looking for feedback on my' "What do you think of my"].sample
+    description_line1 = ['Been thinking about my', 'Want to present my', 'Need to show off my', 'Feeling passionate about my', 'Looking for feedback on my', "What do you think of my"].sample
     description_line2 = ["I love", "Not too keen on", "Had a lot of thoughts on", "I'm so inspired by", "Really drawn by", "Want to try out"].sample
     description_line3 = ["shapes", 'colours', 'design', 'pattern', 'fabric'].sample
     description_line4 = ["Tell me what you think!", "Tell me if I'm going crazy!", "I'm not wrong am I?", "Need a second opinion ha ha! 😅", "Be honest!", "Please be kind!", "Don't be too honest lol"].sample
@@ -66,7 +66,7 @@ User.all.each do |user|
     url = "https://source.unsplash.com/1600x900/?#{style_name}"
     file = URI.open(url)
     style = Style.create!(name: style_name, description: description, user: user).photo.attach(io: file, filename: "#{style_name}.jpg", content_type: 'image/jpg')
-    puts "style #{i + 1} created! It's a #{style_name}!"
+    puts "Style count: #{Style.count}. #{user.username} style #{i + 1} created! It's a #{style_name}!"
   end
 end
 
@@ -108,7 +108,7 @@ Style.all.each do |style|
     price = Faker::Number.decimal(l_digits: 2)
     color = Faker::Color.color_name
     description = Faker::Hipster.paragraph
-    url = ["/images/stock_images/#{category}/#{type}.jpeg", "https://source.unsplash.com/1600x900?#{type}"].sample
+    url = ["public/images/stock_images/#{category}/#{type}.jpeg", "https://source.unsplash.com/1600x900?#{type}"].sample
     file = URI.open(url)
     Item.create!(size: size,
                  clothes_type: clothes_type,

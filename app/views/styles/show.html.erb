@@ -1,27 +1,24 @@
 <div class="style-banner"
-     style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-                              url(<%= @style.photo.attached? ? cl_image_path(@style.photo.key) : asset_path('cover.png') %>)
-            "
->
-  <div class="container">
-    <h1 class='page-heading white text-center'><%= @style.name %></h1>
-  </div>
+   style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+   url(<%= @style.photo.attached? ? cl_image_path(@style.photo.key) : asset_path('cover.png') %>)
+   "
+   >
+   <div class="container">
+      <h1 class='page-heading white text-center'><%= @style.name %></h1>
+   </div>
 </div>
-
 <div class="container my-5">
-  <% @items.each do |item| %>
-    <p data-category="<%= item.clothes_type %>" class='style-item-category'><%= item.clothes_type.singularize.capitalize %>: <%= "#{item.name}" %></p>
-    <p>Description: <%= item.description %></p>
-    <% if item.photo.attached? %>
-      <%= cl_image_tag item.photo.key, class: 'card-home round' %>
-    <% else %>
-      <%= image_tag "cover.png", alt: "alttext", class: 'card-home round' %>
-    <% end %>
-  <% end %>
-
-  <% unless @style.items.count > 4 %>
-    <%= render 'new_item', remote: true %>
-  <% end %>
+   <p><%= @style.description %></p>
+   <% @items.each do |item| %>
+   <div class="row my-5">
+      <div class="col">
+         <%= item.photo.attached? ? cl_image_tag(item.photo.key, class: 'card-home round') : image_tag("cover.png", alt: "alttext", class: 'card-home round') %>
+      </div>
+      <div class="col">
+         <p data-category="<%= item.clothes_type %>" class='style-item-category'><%= "#{item.name}" %></p>
+         <p><strong>Description: </strong><%= item.description %></p>
+      </div>
+   </div>
+   <% end %>
+   <%= render('new_item', remote: true) unless @style.items.count > 4 || @style.user != current_user %>
 </div>
-
-
