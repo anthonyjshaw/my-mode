@@ -24,6 +24,8 @@ class StylesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @reply = Reply.new
   end
 
   def create

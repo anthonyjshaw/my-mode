@@ -6,7 +6,14 @@ Rails.application.routes.draw do
 
   get 'liked-styles', to: 'styles#liked_styles', as: :liked_styles
   resources :styles do
-    resources :items, only: %i[new create edit update destroy]
+    resources :items, only: %i[new create edit update destroy] do
+    end
+    member do
+    post 'toggle_favorite', to: "styles#toggle_favorite"
+  end
+  resources :comments, only: %i[create new] do
+    resources :replies, only: %i[create new]
+  end
   end
 
   get 'blog_posts', to: 'pages#blog', as: :blog_posts
@@ -19,6 +26,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :styles, only: %i[index show update destroy create] do
         resources :items, only: %i[create]
+        resources :comments, only: %i[create] do
+          resources :replies, only: %i[create show index]
+        end
       end
 
       resources :items, only: %i[index show destroy update]

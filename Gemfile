@@ -44,6 +44,15 @@ gem 'simple_form'
 gem 'simple_token_authentication'
 gem 'inline_svg'
 
+# OmniAuth gems
+gem 'omniauth-facebook'
+gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+
+
+
 # For development and test environments
 group :development, :test do
   gem 'pry-byebug'
@@ -53,6 +62,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'launchy'
   gem 'rspec'
+
 end
 
 group :development do
@@ -60,6 +70,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem "better_errors"
+  gem "binding_of_caller"
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

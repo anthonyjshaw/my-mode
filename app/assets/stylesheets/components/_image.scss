@@ -20,10 +20,25 @@
 }
 
 
+
+
+
+@media (max-width: 374px) {
+    .card-home {
+    width: 291px;
+    height: 291px;
+    -o-object-fit: cover;
+    object-fit: cover;
+
+ }
+
+}
+
+
 @media (min-width: 411px) {
     .card-home {
-    width: 381px;
-    height: 381px;
+    width: 228px;
+    height: 228px;
     -o-object-fit: cover;
     object-fit: cover;
 
