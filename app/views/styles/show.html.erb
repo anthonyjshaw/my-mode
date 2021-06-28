@@ -13,7 +13,7 @@
    <hr>
    <div class="row my-5 align-items-center">
       <div class="col">
-         <%= item.photo.attached? ? cl_image_tag(item.photo.key, class: 'card-home round') : image_tag("cover.png", alt: "alttext", class: 'card-home round') %>
+         <%= item.photo.attached? ? cl_image_tag(item.photo.key, class: 'card-home round', alt: "#{item.name}", id: "#{item.clothes_type}") : image_tag("cover.png", alt: "#{item.name}", class: 'card-home round') %>
       </div>
       <div class="col">
          <h3 data-category="<%= item.clothes_type %>" class='style-item-category'><%= "#{item.name}" %></h3>
