@@ -16,3 +16,8 @@
   box-shadow: none;
   border: 1px black solid;
 }
+
+
+input:-internal-autofill-selected {
+  background: transparent;
+}

@@ -10,16 +10,18 @@
     <% @styles.each do |style| %>
     <div class="col col-lg-4 my-5">
     <%= link_to style_path(style) do %>
+      <div class="show">
       <% if style.photo.attached? %>
-      <%= cl_image_tag style.photo.key, class: 'card-home round' %>
+      <%= cl_image_tag style.photo.key, class: 'card-home round style-card' %>
       <% else %>
-      <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
+      <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round style-card' %>
       <% end %>
-      <p class='card-username text-right my-1'><%= style.user.username %></p>
       <div class="overlay">
-        <p>Text</p>
+        <h3><%= style.name %></h3>
+        <p class='card-username text-right my-1'><%= style.user.username %></p>
       </div>
       <% end %>
+      </div>
       </div>
     <% end %>
     </div>

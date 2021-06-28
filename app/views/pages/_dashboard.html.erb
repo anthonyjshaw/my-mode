@@ -3,9 +3,9 @@
     <div class="col">
       <h1 class='page-heading'>Home</h1>
       <% unless current_user.first_name.nil?  %>
-      <p class='intro'>Welcome <%= current_user.first_name %></p>
+      <p class='intro'>Welcome <%= current_user.first_name %>!</p>
       <% else %>
-      <p class='intro'>Welcome <%= current_user.username %></p>
+      <p class='intro'>Welcome <%= current_user.username %>!</p>
       <% end %>
     </div>
   </div>
@@ -17,37 +17,17 @@
     </div>
   </div>
     <div class="row justify-content-around">
-        <% @feed.each do |style| %>
-
-        <%= link_to  style_path(style) do %>
-          <% if style.photo.attached? %>
-      <%= cl_image_tag style.photo.key, class: 'card-home round my-3' %>
-      <% else %>
-      <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
-      <% end %>
-        <% end %>
-
-        <% end %>
-  </div>
+      <%= render 'pages/components/feed' %>
+    </div>
   <hr>
-   <div class="row my-3">
+  <div class="row my-3">
     <div class="col">
       <h2>My Styles</h2>
       <%= link_to "See My styles", my_styles_path  %>
     </div>
   </div>
   <div class="row justify-content-around">
-        <% @my_styles.each do |style| %>
-
-            <%= link_to style_path(style) do %>
-            <% if style.photo.attached? %>
-              <%= cl_image_tag style.photo.key, class: 'card-home round my-3' %>
-            <% else %>
-              <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
-            <% end %>
-          <% end %>
-
-        <% end %>
+    <%= render 'pages/components/my_styles' %>
   </div>
   <hr>
   <div class="row my-3">
@@ -57,15 +37,7 @@
     </div>
   </div>
   <div class="row justify-content-around my-5">
-    <% @liked_styles.each do |style| %>
-      <%= link_to style_path(style) do  %>
-        <% if style.photo.attached? %>
-          <%= cl_image_tag style.photo.key, class: 'card-home round my-3' %>
-        <% else %>
-          <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
-        <% end %>
-      <% end %>
-    <% end %>
+    <%= render 'pages/components/liked_styles' %>
   </div>
 
 </div>

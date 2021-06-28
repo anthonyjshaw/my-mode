@@ -31,11 +31,12 @@
                 input_html: { autocomplete: "new-password", class: 'border-black' }, label_html: {class: 'new-label'} %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-actions text-center">
+    <%= f.button :submit, "Sign up", class: "w-100" %>
   </div>
 <% end %>
 
+<hr>
 <%= render "devise/shared/links" %>
 
 

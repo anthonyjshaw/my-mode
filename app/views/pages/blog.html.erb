@@ -1,14 +1,19 @@
 <div class="container my-5">
-
-<h1 class="page-heading">Blog</h1>
-
-<% if user_signed_in? && current_user.employee? %>
-  <%= link_to "Create a new blog post", new_blog_path %>
-<% end %>
+<div class="row align-items-center">
+  <div class="col">
+    <h1 class="page-heading">Blog</h1>
+  </div>
+  <div class="col">
+    <% if user_signed_in? && current_user.employee? %>
+      <%= link_to "Create a new blog post", new_blog_path %>
+    <% end %>
+  </div>
+</div>
+<hr>
 
 <% @blogs.each do |blog| %>
   <%= link_to blog_path(blog) do  %>
-    <p><%= blog.title %></p>
+    <p><strong><%= blog.title %></strong></p>
   <% end %>
   <p><%= blog.content %></p>
   <p><%= blog.user.full_name %></p>

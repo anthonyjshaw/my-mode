@@ -10,12 +10,13 @@
 <div class="container my-5">
    <p><%= @style.description %></p>
    <% @items.each do |item| %>
-   <div class="row my-5">
+   <hr>
+   <div class="row my-5 align-items-center">
       <div class="col">
          <%= item.photo.attached? ? cl_image_tag(item.photo.key, class: 'card-home round') : image_tag("cover.png", alt: "alttext", class: 'card-home round') %>
       </div>
       <div class="col">
-         <p data-category="<%= item.clothes_type %>" class='style-item-category'><%= "#{item.name}" %></p>
+         <h3 data-category="<%= item.clothes_type %>" class='style-item-category'><%= "#{item.name}" %></h3>
          <p><strong>Description: </strong><%= item.description %></p>
       </div>
    </div>

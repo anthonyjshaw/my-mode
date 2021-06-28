@@ -28,7 +28,8 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { addActiveClassNav } from './add_active_class_nav';
-import { initServiceWorker } from './initServiceWorker'
+import { initServiceWorker } from './initServiceWorker';
+import { addDisableAttrToItemSelect} from './addDisableAttrToItemSelect';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -40,18 +41,12 @@ document.addEventListener('turbolinks:load', () => {
   //   });
   addActiveClassNav();
   initServiceWorker();
+  addDisableAttrToItemSelect();
 
-  const styleItems = document.querySelectorAll('.style-item-category');
-  if (styleItems) {
-    styleItems.forEach((element)=> {
-      const selectOption = document.querySelector(`option[value=${element.dataset.category}]`)
-      if (selectOption) {
-        if (selectOption.innerText === element.dataset.category) {
-          selectOption.setAttribute('disabled', "");
-        }
-      }
-    });
-  }
+
+
+
+
 
 });
 

@@ -1,0 +1,9 @@
+<% @liked_styles.each do |style| %>
+  <%= link_to style_path(style) do  %>
+    <% if style.photo.attached? %>
+      <%= cl_image_tag style.photo.key, class: 'card-home round my-3' %>
+    <% else %>
+      <%= image_tag "logo-circle.png", alt: "alttext", class: 'card-home round' %>
+    <% end %>
+  <% end %>
+<% end %>

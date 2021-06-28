@@ -43,6 +43,31 @@
 
 .searchbar {
   display: none;
+  background: black;
+
+}
+
+.searchbar  {
+  form input {
+    background: transparent;
+      color: white;
+
+
+
+  }
+
+  input::placeholder {
+    color: rgba(255,255,255,0.5);
+  }
+
+  form input:focus {
+    box-shadow: none;
+    // box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.5);
+    background: transparent;
+    border: white 1px solid;
+    color: white;
+
+  }
 
 }
 
