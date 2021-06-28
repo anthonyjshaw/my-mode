@@ -9,7 +9,9 @@ class Style < ApplicationRecord
                   against: %i[name description],
                   using: { tsearch: { prefix: true } }
   has_many :items, dependent: :destroy
+  has_many :comments, dependent: :destroy
   validates_presence_of :name
   belongs_to :user
   has_one_attached :photo
+
 end

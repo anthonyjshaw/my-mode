@@ -1,0 +1,4 @@
+<%= simple_form_for [style, comment] do |f| %>
+<%= f.input :content %>
+<%= f.button :submit, class: 'btn btn-primary', id: 'comment-submit-button', disabled: true  %>
+<% end %>

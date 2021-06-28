@@ -30,6 +30,7 @@ import "bootstrap";
 import { addActiveClassNav } from './add_active_class_nav';
 import { initServiceWorker } from './initServiceWorker';
 import { addDisableAttrToItemSelect} from './addDisableAttrToItemSelect';
+import { disableCommentBtn } from './disableCommentBtn'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -42,10 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   addActiveClassNav();
   initServiceWorker();
   addDisableAttrToItemSelect();
-
-
-
-
+  disableCommentBtn();
 
 
 });

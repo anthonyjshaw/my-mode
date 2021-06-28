@@ -22,4 +22,15 @@
    </div>
    <% end %>
    <%= render('new_item', remote: true) unless @style.items.count > 4 || @style.user != current_user %>
+   <hr>
+   <h2>Comments</h2>
+   <%= render 'styles/components/new_comment', style: @style, comment: @comment, remote: true %>
+   <% @style.comments.each do |comment| %>
+      <p><%= comment.user.username %></p>
+      <p class='content'><%= comment.content %></p>
+      <p><%= comment.created_at.strftime("%d/%m/%Y") %></p>
+      <% comment.replies.each do |reply| %>
+        <p><%= reply.content %></p>
+      <% end %>
+   <% end %>
 </div>

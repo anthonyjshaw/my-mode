@@ -14,9 +14,8 @@ class BlogsTest < ApplicationSystemTestCase
     visit blog_posts_url
     first_blog = Blog.first
     click_on first_blog.title
-    save_and_open_screenshot
     assert_equal blog_path(first_blog), page.current_path
-    save_and_open_screenshot
+
   end
 
   test 'visiting the show page should show you the title and content of the page'  do

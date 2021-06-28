@@ -12,15 +12,23 @@ class StylesTest < ApplicationSystemTestCase
   test 'visting the show page and seeing items' do
     style = Style.find_by(name: "Summer Look")
     accessory = style.items.find_by(clothes_type: 'accessories')
-
     puts accessory
     visit "/styles/#{style.id}"
-    save_and_open_screenshot
     style.items.each do |item|
       assert_selector 'p', text: item.name
       assert_selector 'img'
       assert_selector 'p', text: item.description
     end
+  end
+
+  test 'lets a signed in user create a new style' do
+    login_as users(:anthony)
+    visit new_style_url
+    fill_in 'style_name', with: "Cool style"
+    fill_in 'style_description', with: 'What a cool style'
+    click_on "Create Style"
+    style = Style.last
+    assert_equal style_path(style), page.current_path
   end
 
 end
