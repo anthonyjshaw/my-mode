@@ -10,5 +10,5 @@ Simply add the different items you like to a "style", mixing and matching from d
 
 ## API
 Vist the API!
-[Styles](https://my-mode.cc/api/v1/styles)
+[Styles](https://www.my-mode.cc/api/v1/styles)
 
