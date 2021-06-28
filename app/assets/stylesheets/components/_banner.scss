@@ -7,6 +7,15 @@
 
 }
 
+
+.about-banner {
+  background-image: asset-url('about-banner.jpg');
+  height: 373px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+}
+
 #landing-page-logo {
   font-family: 'Leckerli One', cursive;
   color: #202020;

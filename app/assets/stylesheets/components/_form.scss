@@ -1,0 +1,18 @@
+.new-label {
+  position: relative;
+  top: 19px;
+  right: -10px;
+  padding: 0 8px;
+  background: white;
+}
+
+
+.border-black {
+  border: 1px black solid;
+}
+
+
+.border-black:focus {
+  box-shadow: none;
+  border: 1px black solid;
+}

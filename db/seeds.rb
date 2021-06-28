@@ -55,10 +55,14 @@ puts 'seeding styles...'
 # Seed styles. Each user has at least one style
 User.all.each do |user|
   rand(1..3).times do |i|
-    adjective = %w[Cool Stylish Pretty Amazing Sleek Summer Winter Autumn Spring Freaky].sample
-    noun = %w[collection style mode feeling mood vibe idea ideas move thoughts plans ].sample
+    adjective = %w[Cool Stylish Pretty Amazing Sleek Summer Winter Autumn Spring Freaky Wonderful Masterful Awesome Nice Magical Superb Dour Depressing Dark Christmas].sample
+    noun = %w[collection style mode feeling mood vibe idea ideas move thoughts plans wishlist group].sample
     style_name = "#{adjective} #{noun}"
-    description = Faker::Hipster.paragraph
+    description_line1 = ['Been thinking about my', 'Want to present my', 'Need to show off my', 'Feeling passionate about my', 'Looking for feedback on my' "What do you think of my"].sample
+    description_line2 = ["I love", "Not too keen on", "Had a lot of thoughts on", "I'm so inspired by", "Really drawn by", "Want to try out"].sample
+    description_line3 = ["shapes", 'colours', 'design', 'pattern', 'fabric'].sample
+    description_line4 = ["Tell me what you think!", "Tell me if I'm going crazy!", "I'm not wrong am I?", "Need a second opinion ha ha! 😅", "Be honest!", "Please be kind!", "Don't be too honest lol"].sample
+    description = "#{description_line1} #{style_name.downcase}. #{description_line2} the #{description_line3}. #{description_line4}"
     url = "https://source.unsplash.com/1600x900/?#{style_name}"
     file = URI.open(url)
     style = Style.create!(name: style_name, description: description, user: user).photo.attach(io: file, filename: "#{style_name}.jpg", content_type: 'image/jpg')
@@ -77,11 +81,11 @@ puts 'seeding items...'
 def clothes_name(category)
   case category
   when 'socks'
-    "#{%w[knee\ high ankle\ length invisible\ funky novelty running].sample} socks"
+    "#{%w[knee\ high ankle\ length invisible funky novelty running].sample} socks"
   when 'tops'
     %w[t-shirt dress shirt jumper sweatshirt].sample
   when 'trousers'
-    %w[shorts trousers pants pantaloons joggers tracksuit\ bottoms].sample
+    %w[shorts trousers jeans chinos joggers tracksuit\ bottoms].sample
   when 'accessories'
     %w[dad\ hat sunglasses tie cap trilby sun\ hat].sample
   when 'footwear'
@@ -99,11 +103,12 @@ Style.all.each do |style|
     adjective = %w[cool stylish pretty amazing sleek].sample
     clothes_type = category
     size = Item::SIZE_CATEGORIES.sample
+    type = clothes_name(clothes_type)
     name = "#{adjective} #{clothes_name(clothes_type)}"
     price = Faker::Number.decimal(l_digits: 2)
     color = Faker::Color.color_name
     description = Faker::Hipster.paragraph
-    url = "https://source.unsplash.com/1600x900/?#{name}"
+    url = ["/images/stock_images/#{category}/#{type}.jpeg", "https://source.unsplash.com/1600x900?#{type}"].sample
     file = URI.open(url)
     Item.create!(size: size,
                  clothes_type: clothes_type,
@@ -111,7 +116,7 @@ Style.all.each do |style|
                  description: description,
                  color: color,
                  style: style,
-                 name: name).photo.attach(io: file, filename: "item_#{name}.jpg", content_type: 'image/jpg')
+                 name: name).photo.attach(io: file, filename: "item_#{type}.jpg", content_type: 'image/jpg')
     puts "#{style.name}'s #{category} is seeded!"
   end
   puts 'next style!'
@@ -124,7 +129,7 @@ puts "You have #{User.count} users, #{Style.count} styles and #{Item.count} item
 
 
 
-
+# Comments
 
 
 

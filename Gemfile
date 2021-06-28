@@ -47,6 +47,7 @@ gem 'inline_svg'
 # OmniAuth gems
 gem 'omniauth-facebook'
 gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 
@@ -61,6 +62,9 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'launchy'
   gem 'rspec'
+  gem "better_errors"
+  gem "binding_of_caller"
+
 end
 
 group :development do
