@@ -38,6 +38,6 @@ class ItemsController < ApplicationController
                                  :description,
                                  :size,
                                  :price,
-                                 :name)
+                                 :name, :photo)
   end
 end

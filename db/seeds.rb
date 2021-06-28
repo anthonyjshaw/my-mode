@@ -83,9 +83,9 @@ def clothes_name(category)
   when 'socks'
     "#{%w[knee\ high ankle\ length invisible funky novelty running].sample} socks"
   when 'tops'
-    %w[t-shirt dress shirt jumper sweatshirt].sample
+    %w[t-shirt dress shirt jumper sweatshirt blouse basketball\ jersey football\ shirt].sample
   when 'trousers'
-    %w[shorts trousers jeans chinos joggers tracksuit\ bottoms].sample
+    %w[shorts trousers jeans chinos joggers tracksuit\ bottoms flares skirt basketball\ shorts].sample
   when 'accessories'
     %w[dad\ hat sunglasses tie cap trilby sun\ hat].sample
   when 'footwear'
@@ -104,7 +104,7 @@ Style.all.each do |style|
     clothes_type = category
     size = Item::SIZE_CATEGORIES.sample
     type = clothes_name(clothes_type)
-    name = "#{adjective} #{clothes_name(clothes_type)}"
+    name = "#{adjective} #{type}"
     price = Faker::Number.decimal(l_digits: 2)
     color = Faker::Color.color_name
     description = Faker::Hipster.paragraph
