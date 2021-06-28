@@ -42,9 +42,8 @@ style = Style.create!(name: style_name, description: description, user: User.fir
   last_name = Faker::Name.last_name
   user = User.create!(username: username,
                       email: email,
-                      password: ENV['PASSWORD']
+                      password: ENV['PASSWORD'],
                       first_name: first_name,
-
                       last_name: last_name)
 puts "user #{i + 1} created!"
 end
