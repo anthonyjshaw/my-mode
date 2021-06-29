@@ -1,15 +1,13 @@
 
 const addActiveClassNav = () => {
-  const page = window.location.href;
-  const active = document.getElementById('home-active');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const isLink = ['my-styles']
+  const page = window.location.href
+  const navLinks = document.querySelectorAll('.nav-link')
   navLinks.forEach((element) => {
-    const link = element.href;
+    const link = element.href
     if (page === link) {
-          element.classList.add('active');
+      element.classList.add('active')
     }
   })
 }
 
-export { addActiveClassNav };
+export { addActiveClassNav }

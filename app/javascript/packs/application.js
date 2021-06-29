@@ -23,12 +23,15 @@ require('channels')
 // ----------------------------------------------------
 
 // External imports
+// eslint-disable-next-line import/first, semi
 import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+// eslint-disable-next-line import/first, semi
 import { addActiveClassNav } from './add_active_class_nav';
 import { initServiceWorker } from './initServiceWorker';
+// eslint-disable-next-line import/first
 import { addDisableAttrToItemSelect} from './addDisableAttrToItemSelect';
 import { disableCommentBtn } from './disableCommentBtn'
 document.addEventListener('turbolinks:load', () => {
@@ -43,7 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   addActiveClassNav();
   initServiceWorker();
   addDisableAttrToItemSelect();
+  // eslint-disable-next-line padded-blocks, semi
   disableCommentBtn();
 
 });
-

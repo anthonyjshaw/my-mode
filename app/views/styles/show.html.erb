@@ -1,3 +1,4 @@
+<% content_for :meta_title, "my mode | #{@style.name}" %>
 <div class="style-banner"
    style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
    url(<%= @style.photo.attached? ? cl_image_path(@style.photo.key) : asset_path('cover.png') %>)
@@ -20,17 +21,23 @@
          <p><strong>Description: </strong><%= item.description %></p>
       </div>
    </div>
-   <% end %>
    <%= render('new_item', remote: true) unless @style.items.count > 4 || @style.user != current_user %>
+   <% end %>
    <hr>
    <h2>Comments</h2>
-   <%= render 'styles/components/new_comment', style: @style, comment: @comment, remote: true %>
+   <% if user_signed_in? %>
+    <%= render 'styles/components/new_comment', style: @style, comment: @comment, remote: true %>
+   <% else %>
+    <%= link_to "Sign in to comment", new_user_session_path %>
+   <% end %>
    <% @style.comments.each do |comment| %>
-      <p><%= comment.user.username %></p>
-      <p class='content'><%= comment.content %></p>
-      <p><%= comment.created_at.strftime("%d/%m/%Y") %></p>
+    <p><%= comment.user.username %> <span><%= comment.created_at.strftime("%d/%m/%Y") %></span></p>
+    <p class='content'><%= comment.content %></p>
+    <%= link_to "Show replies", "#collapseExample", data: {toggle: "collapse"} %>
+    <div class="" id="collapseExample">
       <% comment.replies.each do |reply| %>
         <p><%= reply.content %></p>
       <% end %>
+    </div>
    <% end %>
 </div>

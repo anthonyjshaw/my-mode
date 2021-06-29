@@ -21,8 +21,8 @@ class User < ApplicationRecord
   # end
 
   has_many :styles, dependent: :destroy
-  has_many :blogs
-  has_many :comments
+  has_many :blogs, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 
   def full_name
