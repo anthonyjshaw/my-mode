@@ -24,14 +24,14 @@
    <%= render('new_item', remote: true) unless @style.items.count > 4 || @style.user != current_user %>
    <% end %>
    <hr>
-   <h2>Comments</h2>
+   <h2 id="comment-header">Comments</h2>
    <% if user_signed_in? %>
     <%= render 'styles/components/new_comment', style: @style, comment: @comment, remote: true %>
    <% else %>
     <%= link_to "Sign in to comment", new_user_session_path %>
    <% end %>
    <% @comments.each_with_index do |comment, i| %>
-    <div class="comment my-5">
+    <div class="comment my-5" id="comment-<%=comment.id%>">
       <p><%= comment.user.username %> <span><%= comment.created_at.strftime("%d/%m/%Y") %></span></p>
       <p class='content'><%= comment.content %></p>
       <%= render 'styles/components/new_reply', comment: comment, reply: @reply%>

@@ -11,11 +11,7 @@ class PagesController < ApplicationController
 
   def about; end
 
-  def show
-    @item = Item.find(params[:id])
-  end
-
   def blog
-    @blogs = policy_scope(Blog)
+    @blogs = policy_scope(Blog).includes(:user)
   end
 end

@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.style = Style.find(params[:style_id])
     if @comment.save
-      redirect_to style_path(@comment.style)
+      redirect_to style_path(@comment.style, anchor: "comment-header")
     else
       render :new
     end
