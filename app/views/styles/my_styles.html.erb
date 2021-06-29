@@ -7,7 +7,7 @@
 <% else %>
   <div class="row row-align">
 <% @my_styles.each do |style| %>
-    <div class="col col-lg-4">
+    <div class="col col-lg-4 my-3">
       <%= link_to style_path style do  %>
         <% if style.photo.attached? %>
           <%= cl_image_tag style.photo.key, class: 'round card-home'%>
