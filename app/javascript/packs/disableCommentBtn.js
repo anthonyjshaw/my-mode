@@ -1,7 +1,6 @@
 const disableCommentBtn = () => {
-
   const commentContent = document.getElementById('comment_content');
-  const commentSubmitBtn = document.getElementById('comment-submit-button')
+  const commentSubmitBtn = document.getElementById('comment-submit-button');
   if (commentContent) {
     commentContent.addEventListener('keyup', (event) => {
       if (commentContent.value === '') {
@@ -9,9 +8,8 @@ const disableCommentBtn = () => {
       } else {
         commentSubmitBtn.disabled = false;
       }
-    });
+    })
   }
-
 }
 
-export { disableCommentBtn }
+export { disableCommentBtn };

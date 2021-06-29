@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     post 'toggle_favorite', to: "styles#toggle_favorite"
   end
   resources :comments, only: %i[create new] do
-    resources :replies, only: %i[create new]
+
   end
+  resources :replies, only: %i[create new]
   end
 
   get 'blog_posts', to: 'pages#blog', as: :blog_posts

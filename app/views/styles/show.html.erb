@@ -30,14 +30,18 @@
    <% else %>
     <%= link_to "Sign in to comment", new_user_session_path %>
    <% end %>
-   <% @style.comments.each do |comment| %>
-    <p><%= comment.user.username %> <span><%= comment.created_at.strftime("%d/%m/%Y") %></span></p>
-    <p class='content'><%= comment.content %></p>
-    <%= link_to "Show replies", "#collapseExample", data: {toggle: "collapse"} %>
-    <div class="" id="collapseExample">
-      <% comment.replies.each do |reply| %>
-        <p><%= reply.content %></p>
-      <% end %>
+   <% @style.comments.each_with_index do |comment, i| %>
+    <div class="comment my-5">
+      <p><%= comment.user.username %> <span><%= comment.created_at.strftime("%d/%m/%Y") %></span></p>
+      <p class='content'><%= comment.content %></p>
+      <%= render 'styles/components/new_reply', comment: comment, reply: @reply%>
+      <%= link_to "Show replies", "#collapseExample#{i + 1}", data: {toggle: "collapse"}, class: 'collapse-link' %>
+      <div class="collapse my-1" id="collapseExample<%= i + 1 %>">
+        <% comment.replies.each do |reply| %>
+          <p><%= reply.user.username %></p>
+          <p><%= reply.content %></p>
+        <% end %>
+      </div>
     </div>
    <% end %>
 </div>

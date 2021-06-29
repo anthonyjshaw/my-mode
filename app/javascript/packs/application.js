@@ -38,15 +38,21 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
-  // fetch("/api/v1/styles/156")
-  // .then(response => response.json())
-  // .then((data) => {
-  //     console.log(data);
-  //   });
   addActiveClassNav();
   initServiceWorker();
   addDisableAttrToItemSelect();
   // eslint-disable-next-line padded-blocks, semi
   disableCommentBtn();
 
+  const collapseLink = document.querySelectorAll('.collapse-link');
+
+  collapseLink.forEach(element => {
+    element.addEventListener('click', (event) => {
+      if (element.innerHTML === 'Show replies') {
+        element.innerHTML = 'Hide replies';
+      } else {
+        element.innerHTML = 'Show replies';
+      }
+    })
+  })
 });
