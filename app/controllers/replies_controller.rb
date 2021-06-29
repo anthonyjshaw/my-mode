@@ -7,7 +7,7 @@ class RepliesController < ApplicationController
   def create
     @reply = Reply.new(reply_params)
     @reply.user = current_user
-    @reply.comment
+    @reply.comment = Comment.find_by(style: params[:id])
     if @reply.save
       redirect_to style_path(@reply.comment.style)
     else

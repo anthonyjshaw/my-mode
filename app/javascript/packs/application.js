@@ -23,27 +23,30 @@ require('channels')
 // ----------------------------------------------------
 
 // External imports
+// eslint-disable-next-line import/first, semi
 import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+// eslint-disable-next-line import/first, semi
 import { addActiveClassNav } from './add_active_class_nav';
 import { initServiceWorker } from './initServiceWorker';
+// eslint-disable-next-line import/first
 import { addDisableAttrToItemSelect} from './addDisableAttrToItemSelect';
-import { disableCommentBtn } from './disableCommentBtn'
+import { disableCommentBtn } from './disableCommentBtn';
+import { changeReplyText } from './changeReplyText';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
-  // fetch("/api/v1/styles/156")
-  // .then(response => response.json())
-  // .then((data) => {
-  //     console.log(data);
-  //   });
   addActiveClassNav();
   initServiceWorker();
   addDisableAttrToItemSelect();
+  // eslint-disable-next-line padded-blocks, semi
   disableCommentBtn();
+  changeReplyText();
+
+
 
 });
-

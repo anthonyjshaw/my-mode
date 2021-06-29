@@ -7,14 +7,14 @@ class StylesController < ApplicationController
   def index
     if params[:query].present?
       # @styles = policy_scope(Style).search 'sum', fields: [:name], match: :word_middle
-      @styles = policy_scope(Style).search_by_name_and_description(params[:query]).where.not(user: current_user)
+      @styles = policy_scope(Style).search_by_name_and_description(params[:query]).where.not(user: current_user).includes([[photo_attachment: :blob], :user])
     else
-      @styles = policy_scope(Style).where.not(user: current_user)
+      @styles = policy_scope(Style).where.not(user: current_user).includes([[photo_attachment: :blob], :user])
     end
   end
 
   def my_styles
-    @my_styles = policy_scope(Style).where(user: current_user)
+    @my_styles = policy_scope(Style).where(user: current_user).includes([photo_attachment: :blob])
     authorize @my_styles
   end
 
@@ -53,6 +53,7 @@ class StylesController < ApplicationController
   def set_style
     @style = Style.find(params[:id])
     authorize @style
+    @comments = Comment.where(style: @style).includes([:user, :replies]).order(created_at: :desc)
   end
 
   def set_item
@@ -60,6 +61,6 @@ class StylesController < ApplicationController
   end
 
   def style_items
-    @items = @style.items.sort_by { |a| Item::ITEM_CATEGORIES.index(a[:clothes_type]) }
+    @items = @style.items.includes([photo_attachment: :blob]).sort_by { |a| Item::ITEM_CATEGORIES.index(a[:clothes_type]) }
   end
 end

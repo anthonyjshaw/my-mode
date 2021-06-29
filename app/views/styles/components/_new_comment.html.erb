@@ -1,4 +1,4 @@
-<%= simple_form_for [style, comment] do |f| %>
-<%= f.input :content, as: :email, input_html: {class: 'comment-form'} %>
+<%= simple_form_for [style, comment], html: { autocomplete: 'off' }, remote: true  do |f| %>
+<%= f.input :content, as: :email, input_html: {class: 'comment-form'}, label: "Add a comment" %>
 <%= f.button :submit, class: 'btn button-black border-black', id: 'comment-submit-button', disabled: true  %>
 <% end %>

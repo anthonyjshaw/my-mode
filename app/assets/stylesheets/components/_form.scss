@@ -7,6 +7,19 @@
 }
 
 
+
+.comment-form {
+  border: none;
+  border-bottom: 1px black solid;
+  width: 50%;
+  border-radius: 1px;
+}
+
+.comment-form:focus {
+  box-shadow: none;
+  border-bottom: 1px black solid;
+}
+
 .border-black {
   border: 1px black solid;
 }

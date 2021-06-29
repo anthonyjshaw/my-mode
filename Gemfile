@@ -34,15 +34,23 @@ gem 'pundit'
 gem 'faker'
 gem 'open-uri'
 gem 'cloudinary', '~> 1.16.0'
+
+# Search gems
 gem 'pg_search', '~> 2.3.0'
 gem 'searchkick', '~> 4.0'
+
+# Service Worker - PWA/Chrome extension
 gem 'serviceworker-rails'
+
+# Style gems
 gem 'acts_as_favoritor'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'simple_token_authentication'
 gem 'inline_svg'
+
+# Simple auth
+gem 'simple_token_authentication'
 
 # OmniAuth gems
 gem 'omniauth-facebook'
@@ -51,7 +59,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 
-
+# Sidekiq
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 # For development and test environments
 group :development, :test do
@@ -62,11 +72,11 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'launchy'
   gem 'rspec'
-
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'bullet'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

@@ -13,7 +13,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item searchbar">
         <%= form_tag styles_path, method: :get, class: 'form-inline' do %>
-          <%= text_field_tag :query, params[:query], class: 'form-control round focus-white', label: 'Find styles', placeholder: 'find styles' %>
+          <%= text_field_tag :query, params[:query], id:'searchbar', class: 'form-control round focus-white', label: 'Find styles', placeholder: 'find styles' %>
       <% end %>
       </li>
       <li class='nav-item'>
