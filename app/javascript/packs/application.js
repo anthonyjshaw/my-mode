@@ -33,7 +33,9 @@ import { addActiveClassNav } from './add_active_class_nav';
 import { initServiceWorker } from './initServiceWorker';
 // eslint-disable-next-line import/first
 import { addDisableAttrToItemSelect} from './addDisableAttrToItemSelect';
-import { disableCommentBtn } from './disableCommentBtn'
+import { disableCommentBtn } from './disableCommentBtn';
+import { changeReplyText } from './changeReplyText';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -43,16 +45,8 @@ document.addEventListener('turbolinks:load', () => {
   addDisableAttrToItemSelect();
   // eslint-disable-next-line padded-blocks, semi
   disableCommentBtn();
+  changeReplyText();
 
-  const collapseLink = document.querySelectorAll('.collapse-link');
 
-  collapseLink.forEach(element => {
-    element.addEventListener('click', (event) => {
-      if (element.innerHTML === 'Show replies') {
-        element.innerHTML = 'Hide replies';
-      } else {
-        element.innerHTML = 'Show replies';
-      }
-    })
-  })
+
 });

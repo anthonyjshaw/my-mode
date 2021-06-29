@@ -30,7 +30,7 @@
    <% else %>
     <%= link_to "Sign in to comment", new_user_session_path %>
    <% end %>
-   <% @style.comments.each_with_index do |comment, i| %>
+   <% @comments.each_with_index do |comment, i| %>
     <div class="comment my-5">
       <p><%= comment.user.username %> <span><%= comment.created_at.strftime("%d/%m/%Y") %></span></p>
       <p class='content'><%= comment.content %></p>
