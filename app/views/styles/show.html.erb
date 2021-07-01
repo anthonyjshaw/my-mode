@@ -36,13 +36,12 @@
       <p><%= comment.user.username %> <span><%= comment.created_at.strftime("%d/%m/%Y") %></span></p>
       <p class='content'><%= comment.content %></p>
       <%= render 'styles/components/new_reply', comment: comment, reply: @reply%>
+      <% unless comment.replies.empty? %>
       <%= link_to "Show replies", "#collapseExample#{i + 1}", data: {toggle: "collapse"}, class: 'collapse-link' %>
       <div class="collapse my-1" id="collapseExample<%= i + 1 %>">
-        <% comment.replies.each do |reply| %>
-          <p><%= reply.user.username %></p>
-          <p><%= reply.content %></p>
-        <% end %>
+        <%= render 'styles/components/replies', comment: comment %>
       </div>
+      <% end %>
     </div>
    <% end %>
 </div>
