@@ -26,6 +26,13 @@ class StylesController < ApplicationController
   def show
     @comment = Comment.new
     @reply = Reply.new
+
+  end
+
+  def toggle_favorite
+    @style = Style.find(params[:id])
+    authorize @style
+    current_user.favorited?(@style) ? current_user.unfavorite(@style) : current_user.favorite(@style)
   end
 
   def create

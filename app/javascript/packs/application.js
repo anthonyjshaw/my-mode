@@ -35,6 +35,7 @@ import { initServiceWorker } from './initServiceWorker';
 import { addDisableAttrToItemSelect} from './addDisableAttrToItemSelect';
 import { disableCommentBtn } from './disableCommentBtn';
 import { changeReplyText } from './changeReplyText';
+import "controllers";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -48,5 +49,26 @@ document.addEventListener('turbolinks:load', () => {
   changeReplyText();
 
 
+const likeIconEventListener = () => {
+  const likeIcon = document.querySelector('.like-icon');
+  const likeIconI = document.querySelector('.fas.fa-heart');
+  console.log(likeIcon);
+  console.log(likeIconI);
+
+}
+
+likeIconEventListener();
+// function toggleLikeButton(styleId, favoritedStyle) {
+//   let likeButton = document.querySelector(`.like-icon[data-id='${styleId}']`)
+//   likeButton.classList.toggle('red');
+//   if (likeButton.classList.contains('red')) {
+//     const favoriteList = document.querySelector('.favorites');
+//     favoriteList.insertAdjacentHTML('beforeend', favoritedstyle)
+//   }
+//   else {
+//     document.querySelector(`.favorite[data-id='${styleId}']`).remove()
+//   }
+// }
 
 });
+

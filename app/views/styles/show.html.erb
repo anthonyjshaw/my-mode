@@ -6,6 +6,9 @@
    >
    <div class="container">
       <h1 class='page-heading white text-center'><%= @style.name %></h1>
+       <%= link_to toggle_favorite_style_path(@style), remote: true, method: :post do %>
+          <%= render 'styles/components/like_button', style: @style %>
+       <% end %>
    </div>
 </div>
 <div class="container my-5">

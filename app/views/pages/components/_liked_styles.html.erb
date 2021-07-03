@@ -1,4 +1,5 @@
 <% @liked_styles.each do |style| %>
+<div class="col">
   <%= link_to style_path(style) do  %>
     <% if style.photo.attached? %>
       <%= cl_image_tag style.photo.key, class: 'card-home round my-3' %>
@@ -10,4 +11,5 @@
         <p class='card-username text-right my-1'><%= style.user.username %></p>
     </div>
   <% end %>
+  </div>
 <% end %>

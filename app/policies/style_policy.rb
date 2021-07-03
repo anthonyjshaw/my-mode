@@ -29,6 +29,10 @@ class StylePolicy < ApplicationPolicy
     set_auth
   end
 
+  def toggle_favorite?
+    true
+  end
+
   def destroy?
     set_auth
   end
