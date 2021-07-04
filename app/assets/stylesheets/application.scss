@@ -24,17 +24,25 @@ body h1, h2, h3, p {
   margin-bottom: 0.5em;
 }
 
-
-.style-banner {
-  a:hover {
-    color:red;
-  }
+.color-white {
+  color: white;
 }
+.current {
+  color:red;
+}
+
+
 
 .red {
   color: red;
-  font-size: 400px;
 }
+
+.font-weight-900 {
+
+font-weight: 900;
+}
+
+
 
 a {
   color: black;
@@ -50,9 +58,12 @@ a {
 }
 
 .like-icon {
-  max-width: 200px;
+  max-width: 384px;
   text-align: center;
+  margin: auto;
 }
+
+
 
 .flex-wrapper {
   display: flex;

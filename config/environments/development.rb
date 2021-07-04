@@ -30,8 +30,6 @@ Rails.application.configure do
   end
 
 
-  # Ngrok
-  config.hosts << /[a-z0-9]+\.ngrok\.io/
 
 
   # Store uploaded files on the local file system (see config/storage.yml for options).

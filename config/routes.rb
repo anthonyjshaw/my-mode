@@ -1,32 +1,44 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+
+  # Concerns
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+
+  # Pages routes
   get 'about', to: 'pages#about', as: :about
   get 'my-styles', to: 'styles#my_styles', as: :my_styles
+  get 'blog_posts', to: 'pages#blog', as: :blog_posts
 
+  # Styles routes
   get 'liked-styles', to: 'styles#liked_styles', as: :liked_styles
-  resources :styles do
+  resources :styles, concerns: :paginatable do
     member do
       post 'toggle_favorite', to: "styles#toggle_favorite"
     end
 
+    # Nested items
     resources :items, only: %i[new create edit update destroy] do
     end
     member do
     post 'toggle_favorite', to: "styles#toggle_favorite"
   end
+
+  # Comments routes
   resources :comments, only: %i[create new] do
 
   end
+
+  # Replies routes
   resources :replies, only: %i[create new]
   end
 
-  get 'blog_posts', to: 'pages#blog', as: :blog_posts
-
+  # Blog routes
   resources :blogs, only: %i[new show create edit update destroy]
 
   # API routes
-
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :styles, only: %i[index show update destroy create] do
