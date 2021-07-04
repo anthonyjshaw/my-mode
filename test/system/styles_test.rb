@@ -5,6 +5,7 @@ class StylesTest < ApplicationSystemTestCase
     style = Style.find_by(name: "Summer Look")
     accessory = style.items.find_by(clothes_type: 'accessories')
     visit "styles/#{style.id}"
+    save_and_open_screenshot
     assert_selector '.style-banner h1', text: style.name
   end
 
