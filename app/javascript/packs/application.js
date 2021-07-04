@@ -35,6 +35,7 @@ import { initServiceWorker } from './initServiceWorker';
 import { addDisableAttrToItemSelect} from './addDisableAttrToItemSelect';
 import { disableCommentBtn } from './disableCommentBtn';
 import { changeReplyText } from './changeReplyText';
+import "controllers";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -47,6 +48,13 @@ document.addEventListener('turbolinks:load', () => {
   disableCommentBtn();
   changeReplyText();
 
+// const styleId = '<%= @style.id%>'
+// function toggleLikeButton(styleId, innerHTML) {
+//   let likeButton = document.querySelector(`.like-icon[data-id='${styleId}']`)
+//   likeButton.classList.toggle('red');
+// }
+// toggleLikeButton(styleId);
 
 
 });
+

@@ -9,7 +9,10 @@ class StylesController < ApplicationController
       # @styles = policy_scope(Style).search 'sum', fields: [:name], match: :word_middle
       @styles = policy_scope(Style).search_by_name_and_description(params[:query]).where.not(user: current_user).includes([[photo_attachment: :blob], :user])
     else
-      @styles = policy_scope(Style).where.not(user: current_user).includes([[photo_attachment: :blob], :user])
+      @styles = policy_scope(Style)
+                .where.not(user: current_user)
+                .includes([[photo_attachment: :blob], :user])
+                .paginate(page: params[:page], per_page: 15)
     end
   end
 
@@ -26,6 +29,20 @@ class StylesController < ApplicationController
   def show
     @comment = Comment.new
     @reply = Reply.new
+    respond_to do |format|
+      format.html
+      format.json { render json: { style: @style } }
+    end
+  end
+
+  def toggle_favorite
+    @style = Style.find(params[:id])
+    authorize @style
+    current_user.favorited?(@style) ? current_user.unfavorite(@style) : current_user.favorite(@style)
+  end
+
+  def toggle_like_items
+
   end
 
   def create

@@ -6,15 +6,19 @@
    >
    <div class="container">
       <h1 class='page-heading white text-center'><%= @style.name %></h1>
+       <%= link_to toggle_favorite_style_path(@style),  method: :post, id: "like-heart", remote: true do %>
+          <%= render 'styles/components/like_button', style: @style %>
+       <% end %>
    </div>
 </div>
+<!-- Items -->
 <div class="container my-5">
    <p><%= @style.description %></p>
    <% @items.each do |item| %>
    <hr>
    <div class="row my-5 align-items-center">
       <div class="col">
-         <%= item.photo.attached? ? cl_image_tag(item.photo.key, class: 'card-home round', alt: "#{item.name}", id: "#{item.clothes_type}") : image_tag("cover.png", alt: "#{item.name}", class: 'card-home round') %>
+         <%= item.photo.attached? ? cl_image_tag(item.photo.key, class: 'card-home round', alt: "#{item.name}", id: "#{item.clothes_type}") : image_tag("cover.png", alt: "#{item.name}", class: 'card-home round', id: "#{item.clothes_type}") %>
       </div>
       <div class="col">
          <h3 data-category="<%= item.clothes_type %>" class='style-item-category'><%= "#{item.name}" %></h3>
@@ -24,25 +28,27 @@
    </div>
    <%= render('new_item', remote: true) unless @style.items.count > 4 || @style.user != current_user %>
    <% end %>
+   <!-- Items -->
    <hr>
+   <!-- New comment form -->
    <h2 id="comment-header">Comments</h2>
    <% if user_signed_in? %>
     <%= render 'styles/components/new_comment', style: @style, comment: @comment, remote: true %>
    <% else %>
     <%= link_to "Sign in to comment", new_user_session_path %>
    <% end %>
+   <!-- Comments -->
    <% @comments.each_with_index do |comment, i| %>
     <div class="comment my-5" id="comment-<%=comment.id%>">
       <p><%= comment.user.username %> <span><%= comment.created_at.strftime("%d/%m/%Y") %></span></p>
       <p class='content'><%= comment.content %></p>
       <%= render 'styles/components/new_reply', comment: comment, reply: @reply%>
-      <%= link_to "Show replies", "#collapseExample#{i + 1}", data: {toggle: "collapse"}, class: 'collapse-link' %>
-      <div class="collapse my-1" id="collapseExample<%= i + 1 %>">
-        <% comment.replies.each do |reply| %>
-          <p><%= reply.user.username %></p>
-          <p><%= reply.content %></p>
-        <% end %>
-      </div>
+      <% unless comment.replies.empty? %>
+        <%= link_to "Show replies", "#collapseExample#{i + 1}", data: {toggle: "collapse"}, class: 'collapse-link' %>
+        <div class="collapse my-1" id="collapseExample<%= i + 1 %>">
+          <%= render 'styles/components/replies', comment: comment %>
+        </div>
+      <% end %>
     </div>
    <% end %>
 </div>

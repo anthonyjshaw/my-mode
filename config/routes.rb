@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get 'liked-styles', to: 'styles#liked_styles', as: :liked_styles
   resources :styles do
+    member do
+      post 'toggle_favorite', to: "styles#toggle_favorite"
+    end
+
     resources :items, only: %i[new create edit update destroy] do
     end
     member do

@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <div class="like-icon <%= current_user.favorited?(style) ? ' text-danger' : '' %>" data-id="<%= style.id %>" >
+    <i class="fas fa-heart"></i>
+  </div>
+<% else %>
+  <div class="like-icon" data-id="<%= style.id %>">
+    <i class="fas fa-heart"></i>
+  </div>
+<% end %>
