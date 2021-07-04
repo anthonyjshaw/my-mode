@@ -18,9 +18,11 @@
   margin-bottom: 1em;
 }
 
-  .dash-overlay {
-    top: 16px !important;
-  }
+.dash-overlay {
+  top: 16px !important;
+}
+
+
 .overlay {
   opacity: 100;
   display: flex;
@@ -41,6 +43,9 @@
 
 }
 
+.overlay * {
+  height: 30%;
+}
 
 .overlay  {
   p {
@@ -56,6 +61,7 @@
 
 
 
+// Galaxy Fold
 
 
 // iPhone 4
@@ -63,6 +69,24 @@
     .overlay {
     width: 291px;
     height: 291px;
+ }
+}
+
+
+
+@media (max-width: 281px) {
+  .overlay {
+    width: 250px;
+    height: 250px;
+  }
+ }
+
+
+@media (min-width: 411px) {
+    .overlay {
+    width: 228px;
+    height: 228px;
+    left: 94px;
  }
 }
 
@@ -77,6 +101,7 @@
   .overlay {
     height: 200px;
     width: 200px;
+    left:15px;
   }
 
  }
@@ -88,10 +113,10 @@
   }
 
   .overlay {
-
   transition: opacity 0.1s;
     height: 200px;
     width: 200px;
+    left: 61px;
   }
 
  }
@@ -116,16 +141,25 @@
     height: 200px;
     border-radius: 24px;
     top: 0;
-    left: 15px;
+    left: 90px;
     line-height: 48px;
     background: rgba(0,0,0,0.6);
     color: white;
   }
 
+  .overlay * {
+    height: 67%;
+    padding: 16px 8px;
+}
+
   .overlay  {
     p {
       font-size: 1em;
     }
+  }
+
+  .dash-overlay {
+    left: 15px;
   }
 
 }

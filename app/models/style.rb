@@ -2,6 +2,7 @@ class Style < ApplicationRecord
   # searchkick word_start: [:name]
 
   acts_as_favoritable
+  paginates_per 15
   belongs_to :user
   has_many :items, dependent: :destroy
   has_many :comments, dependent: :destroy

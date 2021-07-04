@@ -1,6 +1,9 @@
 var styleId = '<%= @style.id%>'
-function toggleLikeButton(styleId, innerHTML) {
+function toggleLikeButton (styleId, innerHTML) {
   const likeButton = document.querySelector(`.like-icon[data-id='${styleId}']`)
-  likeButton.classList.toggle('text-danger')
+  const heart = document.getElementById(`heart-button-${styleId}`)
+  console.log(heart);
+  likeButton.classList.toggle('red');
+  heart.classList.toggle('font-weight-900');
 }
 toggleLikeButton(styleId)

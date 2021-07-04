@@ -7,12 +7,16 @@ class StylesController < ApplicationController
   def index
     if params[:query].present?
       # @styles = policy_scope(Style).search 'sum', fields: [:name], match: :word_middle
-      @styles = policy_scope(Style).search_by_name_and_description(params[:query]).where.not(user: current_user).includes([[photo_attachment: :blob], :user])
+      @styles = policy_scope(Style)
+                .search_by_name_and_description(params[:query])
+                .where.not(user: current_user)
+                .includes([[photo_attachment: :blob], :user])
+                .page(params[:page])
     else
       @styles = policy_scope(Style)
                 .where.not(user: current_user)
                 .includes([[photo_attachment: :blob], :user])
-                .paginate(page: params[:page], per_page: 15)
+                .page(params[:page])
     end
   end
 

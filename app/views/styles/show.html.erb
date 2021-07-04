@@ -6,14 +6,17 @@
    >
    <div class="container">
       <h1 class='page-heading white text-center'><%= @style.name %></h1>
-       <%= link_to toggle_favorite_style_path(@style),  method: :post, id: "like-heart", remote: true do %>
-          <%= render 'styles/components/like_button', style: @style %>
-       <% end %>
+
    </div>
 </div>
 <!-- Items -->
 <div class="container my-5">
-   <p><%= @style.description %></p>
+   <p class='text-center'>
+    <%= @style.description %>
+    </p>
+      <%= link_to toggle_favorite_style_path(@style), method: :post, id: "like-heart", remote: true do %>
+          <%= render 'styles/components/like_button', style: @style %>
+       <% end %>
    <% @items.each do |item| %>
    <hr>
    <div class="row my-5 align-items-center">

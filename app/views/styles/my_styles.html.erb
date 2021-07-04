@@ -1,29 +1,26 @@
 <div class="container my-5">
-
-<h1 class='page-heading'>My Styles</h1>
-<hr>
-<% if @my_styles == [] %>
-<h2>No styles. Let's <%= link_to "create one!", new_style_path %></h2>
-<% else %>
-  <div class="row row-align">
-<% @my_styles.each do |style| %>
-    <div class="col col-lg-4 my-3">
-      <%= link_to style_path style do  %>
-        <% if style.photo.attached? %>
-          <%= cl_image_tag style.photo.key, class: 'round card-home'%>
-        <% else %>
-          <%= image_tag "shirts.jpg", alt: "alttext", class: 'round card-home' %>
-        <% end %>
-    <div class="overlay">
-      <h3><%= style.name %></h3>
+  <h1 class='page-heading'>My Styles</h1>
+  <hr>
+  <% if @my_styles == [] %>
+  <h2>No styles. Let's <%= link_to "create one!", new_style_path %></h2>
+  <% else %>
+    <div class="row row-align">
+      <% @my_styles.each do |style| %>
+          <div class="col col-lg-4 my-3 text-center">
+            <%= link_to style_path style do  %>
+                <% if style.photo.attached? %>
+                  <%= cl_image_tag style.photo.key, class: 'round card-home'%>
+                <% else %>
+                  <%= image_tag "shirts.jpg", alt: "alttext", class: 'round card-home' %>
+                <% end %>
+              <div class="overlay">
+                <h3><%= style.name %></h3>
+              </div>
+            <% end %>
+        </div>
+      <% end %>
     </div>
+    <h2 class="my-4">Create a style</h2>
+    <%= link_to "create one!", new_style_path %>
   <% end %>
-  </div>
-<% end %>
-  </div>
-
-
-<h2 class="my-4">Create a style</h2>
- <%= link_to "create one!", new_style_path %>
-<% end %>
 </div>

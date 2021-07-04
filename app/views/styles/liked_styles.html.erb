@@ -6,7 +6,7 @@
   <% else %>
     <div class="row row-align">
       <% @styles.each do |style| %>
-        <div class="col col-lg-4 my-5">
+        <div class="col col-lg-4 my-5 text-center">
           <%= link_to style_path(style) do %>
               <div class="show">
                 <% if style.photo.attached? %>
