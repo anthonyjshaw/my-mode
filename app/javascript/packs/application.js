@@ -48,27 +48,13 @@ document.addEventListener('turbolinks:load', () => {
   disableCommentBtn();
   changeReplyText();
 
-
-const likeIconEventListener = () => {
-  const likeIcon = document.querySelector('.like-icon');
-  const likeIconI = document.querySelector('.fas.fa-heart');
-  console.log(likeIcon);
-  console.log(likeIconI);
-
-}
-
-likeIconEventListener();
-// function toggleLikeButton(styleId, favoritedStyle) {
+// const styleId = '<%= @style.id%>'
+// function toggleLikeButton(styleId, innerHTML) {
 //   let likeButton = document.querySelector(`.like-icon[data-id='${styleId}']`)
 //   likeButton.classList.toggle('red');
-//   if (likeButton.classList.contains('red')) {
-//     const favoriteList = document.querySelector('.favorites');
-//     favoriteList.insertAdjacentHTML('beforeend', favoritedstyle)
-//   }
-//   else {
-//     document.querySelector(`.favorite[data-id='${styleId}']`).remove()
-//   }
 // }
+// toggleLikeButton(styleId);
+
 
 });
 

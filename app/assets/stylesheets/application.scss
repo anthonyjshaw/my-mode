@@ -25,15 +25,34 @@ body h1, h2, h3, p {
 }
 
 
+.style-banner {
+  a:hover {
+    color:red;
+  }
+}
+
+.red {
+  color: red;
+  font-size: 400px;
+}
 
 a {
   color: black;
 }
 
-a:hover {
-  text-decoration: none;
+
+#like-heart:hover {
+  color:red;
 }
 
+#like-heart {
+  max-width: 200px;
+}
+
+.like-icon {
+  max-width: 200px;
+  text-align: center;
+}
 
 .flex-wrapper {
   display: flex;
@@ -59,6 +78,10 @@ a:hover {
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
 
+a:hover {
+  text-decoration: none;
+  color:red;
+}
 .page-heading {
 
   text-align: left;

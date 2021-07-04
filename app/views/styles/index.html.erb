@@ -8,10 +8,12 @@
       <%= text_field_tag :query, params[:query], class: 'form-control round', label: 'Find styles', placeholder: 'find styles' %>
     <% end %>
   </div>
+    <%= will_paginate @styles %>
     <div class="row row-align">
       <% @styles.each do |style| %>
         <div class="col col-lg-4 my-5">
           <%= link_to style_path(style) do %>
+
               <div class="show">
                 <% if style.photo.attached? %>
                   <%= cl_image_tag style.photo.key, class: 'card-home round style-card' %>
@@ -21,7 +23,11 @@
                 <div class="overlay">
                   <h3><%= style.name %></h3>
                   <p class='card-username'><%= style.user.username %></p>
+
                 </div>
+                <%= link_to toggle_favorite_style_path(style),  method: :post, id: "like-heart", remote: true do %>
+                      <%= render 'styles/components/like_button', style: style %>
+                    <% end %>
             </div>
           <% end %>
         </div>
