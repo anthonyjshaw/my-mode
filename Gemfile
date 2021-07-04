@@ -49,7 +49,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'inline_svg'
 gem 'will_paginate', '~> 3.1.0'
-
+gem 'will_paginate-bootstrap'
 # Simple auth
 gem 'simple_token_authentication'
 
