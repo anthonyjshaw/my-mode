@@ -17,5 +17,4 @@ class Style < ApplicationRecord
                     user: %i[username first_name last_name]
                   },
                   using: { tsearch: { prefix: true } }
-
 end
