@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable,
          :validatable
-         # :omniauthable, omniauth_providers: %i[twitter facebook google_oauth2]
+  # :omniauthable, omniauth_providers: %i[twitter facebook google_oauth2]
 
   # def self.from_omniauth(auth)
   #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -23,7 +23,6 @@ class User < ApplicationRecord
   has_many :styles, dependent: :destroy
   has_many :blogs, dependent: :destroy
   has_many :comments, dependent: :destroy
-
 
   def full_name
     "#{first_name} #{last_name}"

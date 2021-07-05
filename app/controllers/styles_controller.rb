@@ -46,7 +46,6 @@ class StylesController < ApplicationController
   end
 
   def toggle_like_items
-
   end
 
   def create
@@ -74,7 +73,7 @@ class StylesController < ApplicationController
   def set_style
     @style = Style.find(params[:id])
     authorize @style
-    @comments = Comment.where(style: @style).includes([:user, :replies]).order(created_at: :desc)
+    @comments = Comment.where(style: @style).includes(%i[user replies]).order(created_at: :desc)
   end
 
   def set_item

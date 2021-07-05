@@ -58,7 +58,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
-gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+gem 'omniauth-twitter', github: 'arunagw/omniauth-twitter'
 
 # Sidekiq
 gem 'sidekiq'
