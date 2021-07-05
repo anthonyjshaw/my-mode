@@ -56,6 +56,7 @@ gem 'simple_token_authentication'
 
 # DB admin
 gem 'rails_admin', '~> 2.0'
+gem 'blazer'
 
 # OmniAuth gems
 gem 'omniauth-facebook'
