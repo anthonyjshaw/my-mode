@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :styles, only: %i[index show update destroy create] do
-        resources :items, only: %i[create]
+        resources :items, only: %i[create show]
         resources :comments, only: %i[create] do
           resources :replies, only: %i[create show index]
         end
