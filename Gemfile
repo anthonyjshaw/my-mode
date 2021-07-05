@@ -53,6 +53,10 @@ gem 'kaminari'
 # Simple auth
 gem 'simple_token_authentication'
 
+
+# DB admin
+gem 'rails_admin', '~> 2.0'
+
 # OmniAuth gems
 gem 'omniauth-facebook'
 gem 'omniauth-google'
