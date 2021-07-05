@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   # API routes
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      resources :users, only: %i[index show]
       resources :styles, only: %i[index show update destroy create] do
         resources :items, only: %i[create show]
         resources :comments, only: %i[create] do
