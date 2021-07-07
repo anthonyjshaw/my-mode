@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-my-mode">
   <%= link_to root_path, class: "navbar-brand", id:'navbar-logo' do %>
     <%= image_tag "logo-circle.png", alt: "my-mode circle" %>
     <% end %>
@@ -11,11 +11,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item searchbar">
-        <%= form_tag styles_path, method: :get, class: 'form-inline' do %>
-          <%= text_field_tag :query, params[:query], id:'searchbar', class: 'form-control round focus-white', label: 'Find styles', placeholder: 'find styles' %>
-      <% end %>
-      </li>
+
       <li class='nav-item'>
         <%= link_to 'About', about_path, class:'nav-link nav-link-white', id:'nav-link-white' %>
       </li>
@@ -26,12 +22,17 @@
         <li class="nav-item">
           <%= link_to "My Styles", my_styles_path, class:'nav-link nav-link-white', id:'nav-link-white' %>
         </li>
+        <li class="nav-item dropdown">
+          <%= link_to "Notifications", "#", class: "dropdown-toggle nav-link nav-link-white", style: 'color: white; margin: 0 0.5em; ', id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Action", "#", class: "dropdown-item" %>
+          <%= link_to "Another action", "#", class: "dropdown-item" %>
+        </div>
+      </li>
         <li class="nav-item">
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class:'nav-link nav-link-white', id:'nav-link-white' %>
         </li>
-        <li class="nav-item dropdown">
 
-        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login | Sign up", new_user_session_path, class:'nav-link nav-link-white', id:'nav-link-white'    %>
@@ -40,4 +41,3 @@
     </ul>
   </div>
 </div>
-
