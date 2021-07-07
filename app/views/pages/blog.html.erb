@@ -14,10 +14,9 @@
 
 <% @blogs.each do |blog| %>
   <%= link_to blog_path(blog) do  %>
-    <p><strong><%= blog.title %></strong></p>
+    <p><strong><%= blog.title %></strong> | <span><%= blog.user.full_name %></span></p>
   <% end %>
-  <p><%= blog.content %></p>
-  <p><%= blog.user.full_name %></p>
+  <p class='blog-intro'><%= blog.content %></p>
   <p><%= blog.created_at.strftime("%d/%m/%Y %H:%m") %></p>
 <% end %>
 </div>
