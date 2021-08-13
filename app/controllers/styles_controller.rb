@@ -6,7 +6,6 @@ class StylesController < ApplicationController
 
   def index
     if params[:query].present?
-      # @styles = policy_scope(Style).search 'sum', fields: [:name], match: :word_middle
       @styles = policy_scope(Style)
                 .search_by_name_and_description(params[:query])
                 .where.not(user: current_user)

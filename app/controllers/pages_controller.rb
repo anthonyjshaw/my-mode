@@ -14,6 +14,8 @@ class PagesController < ApplicationController
   def notifications
   end
 
+  def search; end
+
   private
 
   def dashboard
