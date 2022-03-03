@@ -41,3 +41,6 @@ yarn-debug.log*
 .DS_Store
 
 about.txt
+
+# Ignore lock files
+*.lock
