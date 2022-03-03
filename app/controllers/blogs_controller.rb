@@ -3,7 +3,10 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
+  
     authorize @blog
+    @content = @blog.content.split("\r\n\r\n")
+    
   end
 
   def new

@@ -3,10 +3,12 @@
     <div class="col-sm-8">
       <article>
         <h1 class='mb-3'><%= @blog.title %></h1>
-        <p><%= @blog.user.full_name %><span class="mx-3">Date <%= @blog.created_at.strftime("%d/%m/%Y") %></span></p>
+        <p><%= @blog.user.username %><span class="mx-3">Date <%= @blog.created_at.strftime("%d/%m/%Y") %></span></p>
         <hr>
         <section>
-          <%= @blog.content %>
+          <% @content.each do |line| %>
+            <p><%= line %></p>
+          <% end %>
         </section>
       </article>
     </div>

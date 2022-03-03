@@ -25,13 +25,6 @@ puts 'seeding users...'
 # My styles
 
 
-style_name = "Summer Look"
-description = "Trying out a new summer look. What do you think?"
-url = 'https://images.unsplash.com/photo-1590504425127-1e415bb06444?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2665&q=80'
-file = URI.open(url)
-style = Style.create!(name: style_name, description: description, user: User.first).photo.attach(io: file, filename: 'summer.jpg', content_type: 'image/jpg')
-
-
 
 
 # Seed 30 users
@@ -45,9 +38,18 @@ style = Style.create!(name: style_name, description: description, user: User.fir
                       password: ENV['PASSWORD'],
                       first_name: first_name,
                       last_name: last_name)
-puts "user #{i + 1} created!"
+  puts "user #{i + 1} created!"
 end
 puts 'seeded!'
+
+# style_name = "Summer Look"
+# description = "Trying out a new summer look. What do you think?"
+# url = 'https://images.unsplash.com/photo-1590504425127-1e415bb06444?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2665&q=80'
+# file = URI.open(url)
+# style = Style.create!(name: style_name, description: description, user: User.first).photo.attach(io: file, filename: 'summer.jpg', content_type: 'image/jpg')
+
+
+
 
 puts 'seeding styles...'
 
