@@ -7,7 +7,8 @@ class BlogsController < ApplicationController
     authorize @blog
     @content = @blog.content.split("\r\n\r\n")
     
-  end
+      
+end
 
   def new
     @blog = Blog.new
@@ -19,10 +20,18 @@ class BlogsController < ApplicationController
     authorize @blog
     @blog.user = current_user
     if @blog.save
-      redirect_to blog_posts_path
+      redirect_to blog_path(@blog)
     else
       render :new
     end
+  end
+
+  def destroy
+    @blog = Blog.find(params[:id])
+    authorize @blog
+
+    @blog.destroy
+    redirect_to blog_posts_path
   end
 
   private

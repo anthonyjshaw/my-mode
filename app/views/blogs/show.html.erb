@@ -3,7 +3,16 @@
     <div class="col-sm-8">
       <article>
         <h1 class='mb-3'><%= @blog.title %></h1>
-        <p><%= @blog.user.username %><span class="mx-3">Date <%= @blog.created_at.strftime("%d/%m/%Y") %></span></p>
+        <div style="display: flex; align-items: center">
+          <%= cl_image_tag @blog.user.photo.key, class: 'avatar'%>
+          <p style="margin: 0; margin-left: 24px;">
+              <%= @blog.user.username %> | <span><%= @blog.created_at.strftime("%d/%m/%Y") %></span> 
+              <% if @current_user == @blog.user%>
+              <span><%= link_to "Delete #{@blog.title}", blog_path(@blog), method: :delete, data: { confirm: "Are you sure?" } %></span>
+             
+              <% end %>
+          </p>
+        </div>
         <hr>
         <section>
           <% @content.each do |line| %>
