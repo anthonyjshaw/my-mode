@@ -23,7 +23,7 @@
 
 }
 
-.style-banner {
+.style-banner, .style-banner-blog {
   background-size: cover;
   background-position: center;
   height: 90vh;
@@ -31,6 +31,10 @@
   align-items: center;
 }
 
+
+.style-banner-blog {
+  height: 200px  ;
+}
 .svg-banner {
   width: 90%;
 }

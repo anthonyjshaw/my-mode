@@ -51,7 +51,7 @@ class StylesController < ApplicationController
     @style = Style.new(style_params)
     @style.user = current_user
     authorize @style
-    if @style.save!
+    if @style.save
       redirect_to style_path(@style)
     else
       render :new

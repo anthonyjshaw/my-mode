@@ -1,3 +1,12 @@
+<div class="style-banner-blog"
+   style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+   url(<%= @blog.photo.attached? ? cl_image_path(@blog.photo.key) : asset_path('cover.png') %>)
+   "
+   >
+   <div class="container">
+
+   </div>
+</div>
 <div class="container my-4">
   <div class="row">
     <div class="col-sm-8">
@@ -6,12 +15,20 @@
         <div>
           <% if @blog.user.photo.attached? %>
             <%= cl_image_tag @blog.user.photo.key, class: 'avatar' %>
+          <% else %>
+          <%= image_tag "logo-circle-black.png", class: 'avatar' %>
           <% end %>
-          <p><%= @blog.user.full_name %><span class="mx-3">Date <%= @blog.created_at.strftime("%d/%m/%Y") %></span></p>
+          <p><%= @blog.user.full_name %> | <%= @blog.created_at.strftime("%d/%m/%Y") %></p>
+          <% if @current_user == @blog.user %>
+          <p><%= link_to edit_blog_path(@blog) do %>
+          X
+          <% end %>
+          </p>        
+           <% end %>
         </div>
         <hr>
         <section>
-          <%= @blog.content %>
+          <p><%= @blog.content %></p>
         </section>
       </article>
     </div>
