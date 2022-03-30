@@ -14,7 +14,7 @@
 
 <% @blogs.each do |blog| %>
   <%= link_to blog_path(blog), method: :delete do %>
-  <p>delete blog</p>
+    <p>delete blog</p>
   <% end %>
   <%= link_to blog_path(blog) do  %>
     <p><strong><%= blog.title %></strong> | <%= blog.user.full_name %></p>

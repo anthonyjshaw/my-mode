@@ -3,7 +3,8 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show update destroy edit]
 
 
-  def show ;end
+  def show 
+  end
 
   def new
     @blog = Blog.new
@@ -32,8 +33,8 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-  @blog.destroy
-  redirect_to blog_posts_path
+    @blog.destroy
+    redirect_to blog_posts_path
   end
 
   private

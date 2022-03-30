@@ -12,6 +12,14 @@
 @import "components/index";
 @import "pages/index";
 
+trix-editor {
+  height: 200px;
+  margin-top: 8px;
+  border: solid;
+
+}
+
+
 body h1, h2, h3, p {
   font-weight: lighter;
 }

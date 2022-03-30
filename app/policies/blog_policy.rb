@@ -14,7 +14,7 @@ class BlogPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin
+    user.employee
   end
 
   def update?
