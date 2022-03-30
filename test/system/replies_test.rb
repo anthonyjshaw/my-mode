@@ -8,7 +8,8 @@ class RepliesTest < ApplicationSystemTestCase
     visit style_url(Style.find_by(name: 'Summer Look'))
     click_on 'Show replies'
     assert_selector 'p', text: 'Thanks!'
+    puts "Replies test"
+
   end
-  puts "Replies test"
 
 end

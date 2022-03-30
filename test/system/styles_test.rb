@@ -10,6 +10,8 @@ class StylesTest < ApplicationSystemTestCase
     visit "styles/#{style.id}"
     save_and_open_screenshot
     assert_selector '.style-banner h1', text: style.name
+    puts "Styles test"
+
   end
 
 
@@ -22,7 +24,10 @@ class StylesTest < ApplicationSystemTestCase
       assert_selector 'p', text: item.name
       assert_selector 'img'
       assert_selector 'p', text: item.description
+      
     end
+    puts "Styles test"
+
   end
 
   test 'lets a signed in user create a new style' do
@@ -33,7 +38,8 @@ class StylesTest < ApplicationSystemTestCase
     click_on "Create Style"
     style = Style.last
     assert_equal style_path(style), page.current_path
+    puts "Styles test"
+
   end
 
-puts "Styles test"
 end
