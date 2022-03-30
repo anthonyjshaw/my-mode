@@ -13,8 +13,10 @@
 <hr>
 
 <% @blogs.each do |blog| %>
+  <% if blog.user == current_user %>
   <%= link_to blog_path(blog), method: :delete do %>
     <p>delete blog</p>
+    <% end %>
   <% end %>
   <%= link_to blog_path(blog) do  %>
     <p><strong><%= blog.title %></strong> | <%= blog.user.full_name %></p>
