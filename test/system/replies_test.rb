@@ -1,5 +1,8 @@
 require "application_system_test_case"
 
+puts "Replies test"
+
+
 class RepliesTest < ApplicationSystemTestCase
 
   test 'replies should be present under comment' do

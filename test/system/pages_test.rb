@@ -1,5 +1,8 @@
 require "application_system_test_case"
 
+puts "Page test"
+
+
 class PagesTest < ApplicationSystemTestCase
   test "visiting the index not logged in" do
     visit root_url

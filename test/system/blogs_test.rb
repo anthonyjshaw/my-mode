@@ -1,5 +1,6 @@
 require "application_system_test_case"
 
+puts "blog test"
 class BlogsTest < ApplicationSystemTestCase
   test 'visiting the blog page should show all blogs, the author and the title' do
     first_blog = Blog.first

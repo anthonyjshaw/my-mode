@@ -1,5 +1,9 @@
 require "application_system_test_case"
 
+
+puts "Comment test"
+
+
 class CommentsTest < ApplicationSystemTestCase
   test 'visiting style show page should have comments' do
 

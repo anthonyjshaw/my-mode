@@ -1,5 +1,8 @@
 require "application_system_test_case"
 
+puts "Styles test"
+
+
 class StylesTest < ApplicationSystemTestCase
   test 'visting the show page should show the name in a banner' do
     style = Style.find_by(name: "Summer Look")
