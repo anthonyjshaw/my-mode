@@ -1,6 +1,5 @@
 require "application_system_test_case"
 
-puts "Page test"
 
 
 class PagesTest < ApplicationSystemTestCase
@@ -23,6 +22,9 @@ class PagesTest < ApplicationSystemTestCase
       assert_selector 'h2', text: "#{header}"
     end
   end
+
+  puts "Page test"
+
 end
 
 

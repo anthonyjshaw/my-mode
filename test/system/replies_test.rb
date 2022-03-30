@@ -1,6 +1,5 @@
 require "application_system_test_case"
 
-puts "Replies test"
 
 
 class RepliesTest < ApplicationSystemTestCase
@@ -10,5 +9,6 @@ class RepliesTest < ApplicationSystemTestCase
     click_on 'Show replies'
     assert_selector 'p', text: 'Thanks!'
   end
+  puts "Replies test"
 
 end

@@ -1,7 +1,6 @@
 require "application_system_test_case"
 
 
-puts "Comment test"
 
 
 class CommentsTest < ApplicationSystemTestCase
@@ -17,8 +16,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_selector 'p', text: comment.created_at.strftime("%d/%m/%Y")
   end
 
-  test 'lets a signed in user create a comment' do
 
-  end
+  puts "Comment test"
 
 end

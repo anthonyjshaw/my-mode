@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-puts "Styles test"
+
 
 
 class StylesTest < ApplicationSystemTestCase
@@ -35,4 +35,5 @@ class StylesTest < ApplicationSystemTestCase
     assert_equal style_path(style), page.current_path
   end
 
+puts "Styles test"
 end
