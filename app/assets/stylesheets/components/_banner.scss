@@ -23,14 +23,18 @@
 
 }
 
-.style-banner {
+.style-banner, .style-banner-blog {
   background-size: cover;
   background-position: center;
-  height: 373px;
+  height: 90vh;
   display: flex;
   align-items: center;
 }
 
+
+.style-banner-blog {
+  height: 200px  ;
+}
 .svg-banner {
   width: 90%;
 }
@@ -51,6 +55,9 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+  .style-banner {
+    height: 373px;
+  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -61,6 +68,10 @@
   height: 500px;
   text-align: right;
 
+ }
+
+ .style-banner {
+  height: 500px;
  }
 
 }

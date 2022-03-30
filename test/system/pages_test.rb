@@ -1,11 +1,15 @@
 require "application_system_test_case"
 
+
+
 class PagesTest < ApplicationSystemTestCase
   test "visiting the index not logged in" do
     visit root_url
 
     assert_selector "h1", text: "my mode"
     assert_selector 'a', text: 'Find your style'
+    puts "Page test"
+
   end
 
   test 'visting the index page logged in takes you to the dashboard' do
@@ -19,7 +23,11 @@ class PagesTest < ApplicationSystemTestCase
     h2_headers.each do |header|
       assert_selector 'h2', text: "#{header}"
     end
+    puts "Page test"
+
   end
+
+
 end
 
 

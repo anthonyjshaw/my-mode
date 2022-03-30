@@ -19,9 +19,10 @@ class User < ApplicationRecord
   #     # user.skip_confirmation!
   #   end
   # end
-
+  has_one_attached :photo
   has_many :styles, dependent: :destroy
   has_many :blogs, dependent: :destroy
+  has_many :notifications, foreign_key: :recipient_id
   has_many :comments, dependent: :destroy
 
   def full_name

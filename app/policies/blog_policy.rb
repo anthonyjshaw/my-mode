@@ -14,14 +14,14 @@ class BlogPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin
+    user.employee
   end
 
   def update?
-    user.admin
+    user.admin || record.user == user
   end
 
   def destroy?
-    user.admin
+    user.admin || record.user == user
   end
 end

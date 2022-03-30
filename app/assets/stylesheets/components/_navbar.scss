@@ -1,13 +1,13 @@
-.navbar-lewagon {
+.navbar-my-mode {
   justify-content: space-between;
   background: #202020;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-my-mode .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-my-mode .navbar-brand img {
   width: 40px;
 }
 
@@ -29,6 +29,10 @@
     background: #626262;
   }
 }
+
+// .notification-item {
+//   color: black;
+// }
 
 #nav-link-white {
   color: #fff;

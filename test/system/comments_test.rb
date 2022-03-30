@@ -1,5 +1,8 @@
 require "application_system_test_case"
 
+
+
+
 class CommentsTest < ApplicationSystemTestCase
   test 'visiting style show page should have comments' do
 
@@ -13,8 +16,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_selector 'p', text: comment.created_at.strftime("%d/%m/%Y")
   end
 
-  test 'lets a signed in user create a comment' do
 
-  end
+  puts "Comment test"
 
 end

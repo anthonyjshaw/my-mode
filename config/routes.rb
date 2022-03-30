@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
+
   root to: 'pages#home'
 
+  get 'notifications', to: 'pages#notifications', as: :notifications
   # Concerns
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''

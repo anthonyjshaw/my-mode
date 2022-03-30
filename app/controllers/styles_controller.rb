@@ -6,7 +6,6 @@ class StylesController < ApplicationController
 
   def index
     if params[:query].present?
-      # @styles = policy_scope(Style).search 'sum', fields: [:name], match: :word_middle
       @styles = policy_scope(Style)
                 .search_by_name_and_description(params[:query])
                 .where.not(user: current_user)
@@ -52,7 +51,7 @@ class StylesController < ApplicationController
     @style = Style.new(style_params)
     @style.user = current_user
     authorize @style
-    if @style.save!
+    if @style.save
       redirect_to style_path(@style)
     else
       render :new

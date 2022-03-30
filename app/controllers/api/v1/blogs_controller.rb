@@ -2,13 +2,15 @@ module Api
   module V1
     class BlogsController < Api::V1::BaseController
       acts_as_token_authentication_handler_for User, except: %i[index show]
-      before_action :set_blog, only: %i[show update destroy]
+      before_action :set_blog, only: %i[show update destroy edit]
 
       def index
         @blogs = policy_scope(Blog)
       end
 
       def show; end
+
+      def edit; end
 
       def update
         if @blog.update(blog_params)

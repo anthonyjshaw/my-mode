@@ -11,6 +11,11 @@ class PagesController < ApplicationController
     @blogs = policy_scope(Blog).includes(:user)
   end
 
+  def notifications
+  end
+
+  def search; end
+
   private
 
   def dashboard

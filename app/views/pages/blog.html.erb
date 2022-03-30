@@ -13,12 +13,15 @@
 <hr>
 
 <% @blogs.each do |blog| %>
-  <%= link_to blog_path(blog) do  %>
-    <p><strong><%= blog.title %></strong></p>
+  <% if blog.user == current_user %>
+  <%= link_to blog_path(blog), method: :delete do %>
+    <p>delete blog</p>
+    <% end %>
   <% end %>
-  <p><%= blog.content %></p>
-  <p><%= blog.user.full_name %></p>
-  <p><%= blog.created_at.strftime("%d/%m/%Y %H:%m") %></p>
+  <%= link_to blog_path(blog) do  %>
+    <p><strong><%= blog.title %></strong> | <%= blog.user.full_name %></p>
+  <% end %>
+  <p class='blog-intro'><%= blog.content %></p>
 <% end %>
 </div>
 
