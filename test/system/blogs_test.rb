@@ -7,6 +7,7 @@ class BlogsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Blog'
     assert_selector 'p', text: "#{first_blog.user.full_name}"
     assert_selector 'p', text: first_blog.title
+    puts true
   end
 
   test 'clicking on the blog title should take you to the individual blog post' do
@@ -14,6 +15,7 @@ class BlogsTest < ApplicationSystemTestCase
     first_blog = Blog.first
     click_on first_blog.title
     assert_equal blog_path(first_blog), page.current_path
+    puts true
 
   end
 
@@ -22,6 +24,7 @@ class BlogsTest < ApplicationSystemTestCase
     visit blog_url(first_blog)
     assert_selector 'h1', text: first_blog.title
     assert_selector 'section', text: first_blog.content
+    puts true
   end
 
 end
