@@ -15,8 +15,9 @@
     <%= @style.description %>
     </p>
       <%= link_to toggle_favorite_style_path(@style), method: :post, id: "like-heart", remote: true do %>
-          <%= render 'styles/components/like_button', style: @style %>
-       <% end %>
+         <%= render 'styles/components/like_button', style: @style %>
+      <% end %>
+
    <% @items.each do |item| %>
    <hr>
    <div class="row my-5 align-items-center">

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def new
+    @style = Style.find(params[:style_id])
     @item = Item.new
     authorize @item
   end

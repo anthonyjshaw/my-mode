@@ -2,6 +2,13 @@
 <html lang='en'>
   <head>
     <title><%= meta_title %></title>
+    <script src="https://cdn.tiny.cloud/1/kn00h9f7840mjnhwy353aba876xqocjplanpei0o1b987sno/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '.tinymce',
+        plugins: 'lists link image table code help wordcount'
+      });
+    </script>
     <meta name="description" content="<%= meta_description %>">
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
