@@ -14,9 +14,10 @@ class CommentsTest < ApplicationSystemTestCase
     assert_selector 'p.content', text: comment.content
     assert_selector 'p', text: comment.user.username
     assert_selector 'p', text: comment.created_at.strftime("%d/%m/%Y")
+    puts "Comment test"
+
   end
 
 
-  puts "Comment test"
 
 end

@@ -1,16 +1,14 @@
-
-
 <div class="container">
-<%= simple_form_for [style,item] do |f| %>
-<%= f.input :name %>
-<%= f.input :description %>
-<%= f.input :color %>
-<%= f.input :clothes_type, collection: Item::ITEM_CATEGORIES %>
-<%= f.input :size, collection: Item::SIZE_CATEGORIES %>
-<%= f.input :price %>
-<%= f.input :photo, as: :file %>
-<%= f.submit %>
-<% end %>
+	<%= simple_form_for [@style, @item] do |f| %>
+	<%= f.input :name %>
+	<%= f.input :description %>
+	<%= f.input :color %>
+	<%= f.input :clothes_type, collection: Item::ITEM_CATEGORIES %>
+	<%= f.input :size, collection: Item::SIZE_CATEGORIES %>
+	<%= f.input :price %>
+	<%= f.input :photo, as: :file %>
+	<%= f.submit %>
+	<% end %>
 
 </div>
 

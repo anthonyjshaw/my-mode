@@ -1,6 +1,5 @@
 class Blog < ApplicationRecord
-  validates_presence_of :title, :content
-  has_rich_text :content
+  validates_presence_of :title, :content, :blurb
   has_one_attached :photo
   belongs_to :user
 
