@@ -52,7 +52,7 @@ jobs:
           cp config/database.github.yml config/database.yml
           bundle exec rails db:create db:migrate
       - name: update gem
-        run: bundle exec gem update --system 
+        run: bundle clean --force
       - name: Run model tests
         run: bundle exec rails test
       - name: Run system tests
