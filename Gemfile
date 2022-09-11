@@ -22,6 +22,7 @@ gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -46,6 +47,7 @@ gem 'serviceworker-rails'
 gem 'acts_as_favoritor'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
+
 gem 'simple_form'
 gem 'inline_svg'
 gem 'kaminari'
